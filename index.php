@@ -1,15 +1,15 @@
 <?php 
 
 include_once("config/config.php");
- $dbconn = new Database();
- $objCmdArea = new CommandArea();
- $canalNet = new CanalNetworks();
- $objUser = new Users();
- $objCanalUser = new CanalUsers();
- $objUserCrops = new UsersCrops();
- $objCrops = new Crops();
- $objTimescale = new Timescale();
-$objReports = new Reports();
+  $dbconn =       new Database();
+  $objCmdArea =   new CommandArea();
+  $canalNet =     new CanalNetworks();
+  $objUser =      new Users();
+  $objCanalUser = new CanalUsers();
+  $objUserCrops = new UsersCrops();
+  $objCrops =     new Crops();
+  $objTimescale = new Timescale();
+  $objReports =   new Reports();
 
 ?>
 <!DOCTYPE html>
@@ -61,13 +61,13 @@ $objReports = new Reports();
 
 </head>
 
-<body class="g-sidenav-show   bg-gray-100">
+<body class="g-sidenav-show bg-gray-100">
   
   <?php include("includes/left_menu.php");?>
     
-  <main class="main-content mt-1 border-radius-lg">
+  <main class="main-content border-radius-lg">
     <!-- Navbar -->
-    <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur" navbar-scroll="true">
+    <nav class="navbar navbar-main navbar-expand-lg px-0 shadow-none border-radius-xl" id="navbarBlur" navbar-scroll="true">
       <div class="container-fluid py-1 px-3">
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
