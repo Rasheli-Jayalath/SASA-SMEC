@@ -1,4 +1,27 @@
-  
+<?php 
+if(isset($_REQUEST['yr_name'])&& $_REQUEST['yr_name']!="")
+{
+$default_year=$_REQUEST['yr_name'];
+}
+else
+{
+$default_year=CROP_YEAR;
+}
+if(isset($_REQUEST['nc_code'])&& $_REQUEST['nc_code']!="")
+{
+	
+$nc_code=$_REQUEST['nc_code'];	
+if($nc_code=="CA0100")
+{
+	$nc_code="NC0101";
+}
+
+
+}
+else
+{
+$nc_code=NC_CODE;
+}?>  
 <aside class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl  fixed-left " style="overflow-y: hidden; overflow-x: hidden; "   id="sidenav-main ">
     <div class="sidenav-header" style ="">
       <i class="fas fa-times p-3 cursor-pointer text-secondary opacity-5 position-absolute right-0 top-0 d-none d-xl-none" aria-hidden="true" id="iconSidenav"></i>
@@ -11,8 +34,7 @@
     </div>
     <hr class="horizontal dark mt-0">
     <form action="" method="get" id="filter" name="filter" class="mt-4">
-       <label style="padding-left:15px; font-size:16px;"> <strong>Year:&nbsp;&nbsp;</strong></label>
-       <select id="yr_name" name="yr_name" style="width:100px; height:25px">
+       <label style="padding-left:15px; font-size:16px;"> <strong>Year:&nbsp;&nbsp;</strong></label><select id="yr_name" name="yr_name" style="width:100px; height:25px">
       <?php 
 	  $objTimescale->getYears();
 	  while($yrows=$objTimescale->dbFetchArray())

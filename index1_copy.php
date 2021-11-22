@@ -52,6 +52,7 @@ include_once("config/config.php");
   
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
+ <div class="wrapper">
 
   <!-- Preloader
   <div class="preloader flex-column justify-content-center align-items-center">
@@ -66,6 +67,7 @@ include_once("config/config.php");
  <!-- End Main left Sidebar Container -->
 
 
+ <div class="container-fluid">
    <!-- Main Header  Navbar -->
 
     <?php include("includes/main_header.php");?>
@@ -99,21 +101,22 @@ include_once("config/config.php");
     </section>
     <!-- /.content -->
 
-
+  </div>
   <!-- /.content-wrapper -->
 
   <!-- page footer -->
   <?php include("includes/footer.php");?>
   <!-- /.page footer -->
 
-
+  </div> 
 
   <!-- Control Sidebar -->
   <aside class="control-sidebar control-sidebar-dark">
     <!-- Control sidebar content goes here -->
   </aside>
   <!-- /.control-sidebar -->
-
+</div>
+<!-- ./wrapper -->
 
 <!-- jQuery -->
 <script src="plugins/jquery/jquery.min.js"></script>

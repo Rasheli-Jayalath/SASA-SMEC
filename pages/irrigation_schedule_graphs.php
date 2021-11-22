@@ -1,3 +1,26 @@
+<?php
+if(isset($_REQUEST['yr_name'])&& $_REQUEST['yr_name']!="")
+{
+$default_year=$_REQUEST['yr_name'];
+}
+else
+{
+$default_year=CROP_YEAR;
+}
+if(isset($_REQUEST['nc_code'])&& $_REQUEST['nc_code']!="")
+{
+
+$nc_code=$_REQUEST['nc_code'];
+if($nc_code=="CA0100")
+{
+$nc_code="NC0101";
+}
+}
+else
+{
+$nc_code=NC_CODE;
+}?>
+
 <?php 
 
 $objTimescaleTT = new Timescale();
@@ -151,14 +174,13 @@ $(function () {
     
 
 		</script>
- <div class="row">
-        <div class="col-sm-4" style="width:1400px">
-          <div class="well" style="width:1400px">
-           <figure class="highcharts-figure" style="width:1390px">
-    <div id="container1" style="width:1390px"></div>
+
+      
+           <figure class="highcharts-figure" style="width:1400px">
+    <div id="container1" style="width:1400px"></div>
    
 </figure>
-          </div>
-        </div>
+    
+  
     	
-      </div>
+    

@@ -1,6 +1,6 @@
 <!--     making the connection with DB     -->
 <?php require_once('../Config/connection.php'); ?>
-<?php require_once('../Classes/select_latest_year.php'); ?>
+<?php //require_once('../Classes/select_latest_year.php'); ?>
 <?php  include '../Classes/check_equality.php';  ?>
 
 <!DOCTYPE html>
@@ -46,22 +46,7 @@
         <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
           <div class="ms-md-auto pe-md-3 d-flex align-items-center">
           <div class="input-group me-4 ">
-              <form action="table_crop.php " method="get" id="filter" name="filter" class="">
-                    <label style="font-size:16px;"> <strong>Year:&nbsp;&nbsp;</strong></label>
-                    <select id="yr_name" name="yr_name" style="width:100px; height:25px">
-
-                      <?php 
-                        $sql = "SELECT * FROM wh_004_year_main ORDER BY yr_name";
-                        $result = mysqli_query($connection , $sql);		
-                        while ($row = mysqli_fetch_array($result)){
-                          $obj = new check_equality();  
-                          echo "<option value=".$row['yr_name'] . " ". $obj->_check($row['yr_name'], $latest_year ). ">".$row['yr_name']."</option>";                                                                                 
-                        }
-                      ?>  
-                      
-                    </select>
-                    <input type="submit" id="go" value="GO"  class="bg-gradient-secondary text-white me-2 "/>
-              </form>
+  
            </div>           
             <div class="input-group">
               <span class="input-group-text text-body"><i class="fas fa-search" aria-hidden="true"></i></span>
@@ -129,7 +114,7 @@
         $year =  $_GET['yr_name'];
         $yr_name = " AND yr_name = ". $year ;
       }else{
-        $yr_name = " AND yr_name = ". $latest_year;
+        $yr_name = " AND yr_name = ". $default_year;
       }
       ?>
  
@@ -138,7 +123,7 @@
         $year =  $_GET['yr_name'];
         $yr_name = " AND yr_name = ". $year ;
       }else{
-        $yr_name = " AND yr_name = ". $latest_year;
+        $yr_name = " AND yr_name = ". $default_year;
       }
       ?>
 

@@ -1,19 +1,19 @@
-<nav class="main-header navbar navbar-expand navbar-white navbar-light row " style="margin-top: -1px; margin-bottom: -5px; left: -0.7% ">
+<nav class="main-header navbar navbar-expand navbar-white navbar-light row fixed-top " style="margin-top: -1px; margin-bottom: -5px; ">
     <!-- Left navbar links -->
-    <ul class="navbar-nav col">
+    <ul class="navbar-nav ">
       <li class="nav-item">
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
     </ul>
 
-    <div class="col-7 text-center pt-2" style= "left: -8% ">
-    <h5 class=" " >SMEC Agriculture Water Management System Water Management System Water Mana</h5>
+    <div class="col-8  pt-2 d-none d-none d-xl-block" >
+    <h5 class="font-weight-bold " style="font-size:1.3vw;">SMEC Agriculture Water Management System - Water Management System - Sri Lanka</h5>
     </div>
 
     <!-- Right navbar links -->
-    <ul class="navbar-nav ml-auto col">
+    <ul class="navbar-nav ml-auto ">
       <!-- Navbar Search -->
-      <li class="nav-item">
+      <li class="nav-item ">
         <a class="nav-link" data-widget="navbar-search" href="#" role="button">
           <i class="fas fa-search"></i>
         </a>
@@ -36,7 +36,7 @@
 
 
       <!-- Messages Dropdown Menu -->
-      <li class="nav-item dropdown">
+      <li class="nav-item dropdown " >
         <a class="nav-link" data-toggle="dropdown" href="#">
           <i class="far fa-comments"></i>
           <span class="badge badge-danger navbar-badge">3</span>
@@ -94,7 +94,7 @@
         </div>
       </li>
       <!-- Notifications Dropdown Menu -->
-      <li class="nav-item dropdown">
+      <li class="nav-item dropdown ">
         <a class="nav-link" data-toggle="dropdown" href="#">
           <i class="far fa-bell"></i>
           <span class="badge badge-warning navbar-badge">15</span>
@@ -120,24 +120,17 @@
           <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
         </div>
       </li>
-      <li class="nav-item">
+      <li class="nav-item d-none d-md-block d-lg-block d-xl-block">
         <a class="nav-link" data-widget="fullscreen" href="#" role="button">
           <i class="fas fa-expand-arrows-alt"></i>
         </a>
       </li>
 
-      <li class="nav-item">
-        <a class="nav-link" data-widget="control-sidebar" data-controlsidebar-slide="true" href="#" role="button">
-          <i class="fas fa-th-large"></i>
-        </a>
-      </li>
-      <li class="nav-item my-n1">
-        <div class="user-panel d-flex ">
 
-            <div class="info">
-            <a href="#" class=" nav-link bg-gradient-light font-weight-bold text-sm">   <i class="fa fa-user text-teal mr-1"></i> Super Admin</a>
-            </div>
-        </div>
+      <li class="nav-item d-none d-md-block d-lg-block d-xl-block">
+            <a href="#" class=" nav-link bg-gradient-light font-weight-bold text-sm ">   <i class="fa fa-user text-teal "></i> Super Admin</a>
       </li>
     </ul>
+
+
   </nav>

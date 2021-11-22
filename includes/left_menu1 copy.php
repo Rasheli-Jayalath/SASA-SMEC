@@ -1,4 +1,21 @@
 <?php 
+//========================================
+$start_time = microtime(true); //checker
+//========================================
+error_reporting(0);
+include_once("../config/config.php");
+$dbconn = new Database();
+$objCmdArea = new CommandArea();
+$canalNet = new CanalNetworks();
+$objUser = new Users();
+$objCanalUser = new CanalUsers();
+$objUserCrops = new UsersCrops();
+$objCrops = new Crops();
+$objTimescale = new Timescale();
+$objReports = new Reports();
+?>
+
+<?php 
 if(isset($_REQUEST['yr_name'])&& $_REQUEST['yr_name']!="")
 {
 $default_year=$_REQUEST['yr_name'];
