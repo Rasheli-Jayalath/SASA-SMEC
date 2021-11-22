@@ -103,25 +103,8 @@ $objUserCropsS->getUserCrops();
 		  }
 ?>  
 
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- CSS scrollbar Files -->
-    <link id="pagestyle" href="assets/css/scrollbar.css" rel="stylesheet" />
-</head>
-
-<body >
 
 
-          
-     <div class="row mt-4">
-        <div class="col-lg-5 mb-lg-0 mb-4">
-          <div class="card">
-            <div class="card-body p-3">
             
                    <figure class="highcharts-figure">
     <div id="container"></div>
@@ -141,7 +124,7 @@ function drilldownType(drilldownData) {
 // Create the chart
 Highcharts.chart('container', {
   chart: {
-    type: 'pie'
+    type: 'bar'
   },
    title: {
         text: 'Cropping Pattern Summary Irrigated Area/ha'
@@ -173,20 +156,3 @@ Highcharts.chart('container', {
 </script>
 </figure>
                 
-
-            </div>
-          </div>
-        </div>  
-
-        <div class="col-lg-7" >
-          <div class="card"  >
-      
-            <iframe class ="" src="includes/chart1.php?yr_name= <?php echo $default_year; ?> " style = " height :450px  " ></iframe>
-   
-          </div>
-        </div>
-      </div>
-
-    </body>
-
-</html>
