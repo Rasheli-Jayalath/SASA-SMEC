@@ -19,3 +19,13 @@ border-radius: 5px;
 ::-webkit-scrollbar-thumb:hover {
 background: #463159; 
 }
+
+
+div.scroll { margin: 4px, 4px; padding: 4px; overflow: auto; white-space: nowrap; } 
+.sidebar {height: 100%;width: 250px;position: fixed;z-index: 1;overflow-x: hidden;transition: 0.5s;}
+.sidebar a {padding: 8px 8px 8px 32px;text-decoration: none;font-size: 25px;color: #818181;display: block;transition: 0.3s;}
+ #main-content {transition: margin-left .5s;padding: 16px;margin-left: 220px}
+.rotate{-moz-transition: all 0.4s linear;-webkit-transition: all 0.4s linear;transition: all 0.4s linear;}
+.rotate.down{-moz-transform:rotate(360deg);-webkit-transform:rotate(360deg);transform:rotate(360deg);}
+.button-rotate {  padding: 0;margin: 0;margin-right: 10px;border: none;background-color: transparent;transform: rotate(360deg);transition: transform 0.5s;}
+.button-rotate:active {transform: rotate(0deg);transition:  0s;}
