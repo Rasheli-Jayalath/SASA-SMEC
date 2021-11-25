@@ -52,39 +52,127 @@ include_once("config/config.php");
             div.scroll { 
                 margin: 4px, 4px; 
                 padding: 4px; 
-                width: 1200px; 
+              
                 overflow: auto; 
                 white-space: nowrap; 
 
             } 
-        </style>
 
+            .sidebar {
+  height: 100%;
+  width: 250px;
+  position: fixed;
+  z-index: 1;
+  overflow-x: hidden;
+  transition: 0.5s;
+
+}
+
+.sidebar a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+#main {
+  transition: margin-left .5s;
+  padding: 16px;
+  margin-left: 210px
+}
+.rotate{
+    -moz-transition: all 0.4s linear;
+    -webkit-transition: all 0.4s linear;
+    transition: all 0.4s linear;
+}
+
+.rotate.down{
+    -moz-transform:rotate(360deg);
+    -webkit-transform:rotate(360deg);
+    transform:rotate(360deg);
+}
+
+.button-rotate {  
+  padding: 0;
+  margin: 0;
+  margin-right: 10px;
+  border: none;
+  background-color: transparent;
+  transform: rotate(360deg);
+  transition: transform 0.5s;
+}
+
+.button-rotate:active {
+  transform: rotate(0deg);
+  transition:  0s;
+}
+
+
+
+        </style>
+<script>
+function changeme(id) {
+  var other = document.getElementById(id == 'first' ? 'second' : 'second');
+  if (/s/i.test(other.innerHTML)) {
+    other.innerHTML = other.innerHTML.replace('s', '-');
+      document.getElementById("sidenav-main").style.width = "250px";
+  document.getElementById("main").style.marginLeft = "210px";
+  } else {
+    other.innerHTML = other.innerHTML.replace('-', 's');
+      document.getElementById("sidenav-main").style.width = "0";
+  document.getElementById("main").style.marginLeft= "0";
+  document.getElementById("line-chart").style.width = "120%";
+  }
+}
+
+
+
+</script>
 </head>
 
 <body class="g-sidenav-show bg-gray-100">
-  
+  <div class= "sidebar" id="sidenav-main" style="overflow-y: hidden;">
   <?php include("includes/left_menu.php");?>
-    
-  <main class="main-content border-radius-lg">
+          </div>
+  <main class="main-content border-radius-lg" id="main">
 
-  
     <!-- Navbar -->
-    <nav class="navbar navbar-main navbar-expand-lg px-0 shadow-none border-radius-xl" id="navbarBlur" navbar-scroll="true">
+    <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur" navbar-scroll="true">
       <div class="container-fluid py-1 px-3">
         <nav aria-label="breadcrumb">
-          <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
-            <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="javascript:;">Pages</a></li>
-            <li class="breadcrumb-item text-sm text-dark active" aria-current="page">Dashboard</li>
-          </ol>
-          <h6 class="font-weight-bolder mb-0">Dashboard</h6>
+          
+          <div class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
+          
+
+      <button  id="second" style="display:none;"> -</button>
+      <button onclick="changeme(this.id);" class="button-rotate ml-2" > <i class="fa fa-bars" aria-hidden="true"></i></button>
+      <div class=" d-none d-xl-block " >
+     
+      <span class="text-dark font-weight-bold " style="">SMEC Agriculture Water Management System - Water Management System - Sri Lanka</span>
+    </div>
+            
+</div>
+          
         </nav>
-        <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
+        <div class="collapse navbar-collapse mt-sm-0 me-md-0 me-sm-4" id="navbar">
           <div class="ms-md-auto pe-md-3 d-flex align-items-center">
             <div class="input-group">
-              <span class="input-group-text text-body"><i class="fas fa-search" aria-hidden="true"></i></span>
-              <input type="text" class="form-control" placeholder="Type here...">
+            <form action="" method="get" id="filter" name="filter" >
+       <label style="padding-left:15px; font-size:16px;"> <strong>Year:&nbsp;&nbsp;</strong></label><select id="yr_name" name="yr_name" style="width:100px; height:25px">
+      <?php 
+	  $objTimescale->getYears();
+	  while($yrows=$objTimescale->dbFetchArray())
+	  {?>
+      <option value="<?php echo $yrows["yr_name"];?>" <?php if($default_year==$yrows["yr_name"]){ ?>  selected="selected" <?php }?>>
+	  <?php echo $yrows["yr_name"];?></option>
+      <?php  }?>
+      </select>
+       <input type="submit" id="go" value="GO"  />
+       </form>
             </div>
-            <ul class="navbar-nav  justify-content-end">
+          </div>
+          <ul class="navbar-nav  justify-content-end">
             <li class="nav-item d-flex align-items-center">
               <a href="javascript:;" class="nav-link text-body font-weight-bold px-0">
                 <i class="fa fa-user me-sm-1"></i>
@@ -111,8 +199,6 @@ include_once("config/config.php");
               </a>
             </li>
           </ul> 
-          </div>
-          <?php ?>
         </div>
       </div>
     </nav>
@@ -121,9 +207,13 @@ include_once("config/config.php");
       <?php include("pages/top_indicators.php"); ?>
       <?php include("pages/graphs.php");?>
 
+      <div class=" horizontal-scrollable scroll mb-3" style="max-height: 420px; overflow: hidden; margin:auto;" >
+      <iframe class ="" src="includes/chart1.php?yr_name= <?php echo $default_year; ?> " id="line-chart" style = "width: 104%; height: 600px; overflow-y: hidden; margin-left: -4%; "  frameBorder="0"></iframe>
+ 
 
+        </div>
 
-      <div class="col-lg-12 horizontal-scrollable scroll" >
+      <div class=" horizontal-scrollable scroll" >
       <h5 class="font-weight-bolder mb-0">Canal-Wise Water Distribution Plan </h5>
       <?php  include("pages/main_report.php");?>
 
