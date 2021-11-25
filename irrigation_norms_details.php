@@ -4,15 +4,15 @@ $start_time = microtime(true); //checker
 //========================================
 error_reporting(0);
 include_once("config/config.php");
-$dbconn = new Database();
-$objCmdArea = new CommandArea();
-$canalNet = new CanalNetworks();
-$objUser = new Users();
-$objCanalUser = new CanalUsers();
-$objUserCrops = new UsersCrops();
-$objCrops = new Crops();
-$objTimescale = new Timescale();
-$objReports = new Reports();
+  $dbconn       = new Database();
+  $objCmdArea   = new CommandArea();
+  $canalNet     = new CanalNetworks();
+  $objUser      = new Users();
+  $objCanalUser = new CanalUsers();
+  $objUserCrops = new UsersCrops();
+  $objCrops     = new Crops();
+  $objTimescale = new Timescale();
+  $objReports   = new Reports();
 ?>
 
 
@@ -50,59 +50,22 @@ $objReports = new Reports();
   <script src="Highcharts/code/highcharts.js"></script>
   <script src="Highcharts/code/modules/exporting.js"></script>
   <script src="Highcharts/code/modules/jquery.highchartTable.js"></script>
+
+  <!-- SideBar -->
+  <script src="scripts/mainpages.js"></script>
+
 </head>
 
 <body class="g-sidenav-show bg-gray-100">
-<?php include("includes/left_menu.php");?> 
-  <main class="main-content mt-1 border-radius-lg">
+  <div class= "sidebar 	" id="sidenav-main" style="overflow-y: hidden; bottom: 0: display: none;" >
+      <?php include("includes/left_menu.php");?>
+  </div>
+  <main class="main-content border-radius-lg" id="main-content">
     <!-- Navbar -->
-    <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur" navbar-scroll="true">
-      <div class="container-fluid py-1 px-3">
-        <nav aria-label="breadcrumb">
-
-          <h5 class="font-weight-bolder mb-0"> Irrigation Norms and Decadal Crop Water Use Values as Percent</h5>
-        </nav>
-        <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
-          <div class="ms-md-auto pe-md-3 d-flex align-items-center">
-            <div class="input-group">
-              <span class="input-group-text text-body"><i class="fas fa-search" aria-hidden="true"></i></span>
-              <input type="text" class="form-control" placeholder="Type here...">
-            </div>
- 
-          </div>
-          <ul class="navbar-nav  justify-content-end">
-            <li class="nav-item d-flex align-items-center">
-              <a href="javascript:;" class="nav-link text-body font-weight-bold px-0">
-                <i class="fa fa-user me-sm-1"></i>
-                <span class="d-sm-inline d-none">Sign In</span>
-              </a>
-            </li>
-            <li class="nav-item d-xl-none ps-3 d-flex align-items-center">
-              <a href="javascript:;" class="nav-link text-body p-0" id="iconNavbarSidenav">
-                <div class="sidenav-toggler-inner">
-                  <i class="sidenav-toggler-line"></i>
-                  <i class="sidenav-toggler-line"></i>
-                  <i class="sidenav-toggler-line"></i>
-                </div>
-              </a> 
-            </li>
-            <li class="nav-item px-3 d-flex align-items-center">
-              <a href="javascript:;" class="nav-link text-body p-0">
-                <i class="fa fa-cog fixed-plugin-button-nav cursor-pointer"></i>
-              </a>
-            </li>
-            <li class="nav-item dropdown pe-2 d-flex align-items-center">
-              <a href="javascript:;" class="nav-link text-body p-0" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-                <i class="fa fa-bell cursor-pointer"></i>
-              </a>
-            </li>
-          </ul> 
-        </div>
-      </div>
-    </nav>
+       <?php include("includes/nav_header.php");?>
     <!-- End Navbar -->
 
-	    <div class="border"></div>
+
 
       <!-- ---------- Start content Editing ---------------- -->
 
