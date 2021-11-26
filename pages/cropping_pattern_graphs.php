@@ -1,3 +1,26 @@
+<?php
+if(isset($_REQUEST['yr_name'])&& $_REQUEST['yr_name']!="")
+{
+$default_year=$_REQUEST['yr_name'];
+}
+else
+{
+$default_year=CROP_YEAR;
+}
+if(isset($_REQUEST['nc_code'])&& $_REQUEST['nc_code']!="")
+{
+
+$nc_code=$_REQUEST['nc_code'];
+if($nc_code=="CA0100")
+{
+$nc_code="NC0101";
+}
+}
+else
+{
+$nc_code=NC_CODE;
+}?>
+
 <?php 
 $objTimescaleT = new Timescale();
 $objCropsS = new Crops();	
@@ -106,9 +129,9 @@ $objUserCropsS->getUserCrops();
 	  // end Canal Loop
 	 // echo  $srt_data;
 	 // echo $dril_str;?>  
- <div class="row">
-        <div class="col-sm-4" style="width:1350px">
-          <div class="well" style="width:1350px">
+ <div class="row text-center">
+        <div class="col-sm-4" style="width:99.7%">
+          <div class="well" style="width:99.7%">
        <figure class="highcharts-figure">
     <div id="container"></div>
     <script>

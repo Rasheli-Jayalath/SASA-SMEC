@@ -64,14 +64,16 @@ include_once("config/config.php");
 
     <div class="container-fluid py-4 ">
       <?php include("pages/top_indicators.php"); ?>
-      <?php include("pages/graphs.php");?>
-      <h3 class="   mb-3" style="max-height: 420px; overflow: hidden; margin: 0 auto; text-align:right; " >
-          <iframe class ="" src="includes/chart1.php?yr_name= <?php echo $default_year; ?> " id="line-chart" style = "width: 100%; height: 600px; overflow-y: hidden;   "  frameBorder="0"></iframe>
-     </h3>
 
+      <?php include("pages/graphs.php");?>
+
+      <div class=" text-center  mb-3" style="max-height: 420px; overflow: hidden; margin: 0 auto; text-align:right; " >
+          <iframe class ="" src="includes/chart1.php?yr_name= <?php echo $default_year; ?> " id="line-chart" style = "width: 102%; height: 600px; overflow-y: hidden; margin-left: -1%;"  frameBorder="0"></iframe>
+      </div>
+
+     <h5 class="font-weight-bolder m-auto text-center mb-0">Canal-Wise Water Distribution Plan </h5>
       <div class=" horizontal-scrollable scroll" >
-          <h5 class="font-weight-bolder mb-0">Canal-Wise Water Distribution Plan </h5>
-          <?php  include("pages/main_report.php");?>
+    <?php  include("pages/main_report.php");?>
       </div>
 
 
