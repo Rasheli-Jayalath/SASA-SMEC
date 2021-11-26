@@ -181,7 +181,7 @@ Highcharts.chart('container', {
         <div class="col-lg-7" >
           <div class="card"  >
       
-            <iframe class ="" src="includes/chart-right.php?yr_name= <?php echo $default_year; ?> " style = " height :450px  " ></iframe>
+            <iframe class ="" src="includes/chart1.php?yr_name= <?php echo $default_year; ?> " style = " height :450px  " ></iframe>
    
           </div>
         </div>

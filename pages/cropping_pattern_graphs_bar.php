@@ -1,3 +1,26 @@
+<?php
+if(isset($_REQUEST['yr_name'])&& $_REQUEST['yr_name']!="")
+{
+$default_year=$_REQUEST['yr_name'];
+}
+else
+{
+$default_year=CROP_YEAR;
+}
+if(isset($_REQUEST['nc_code'])&& $_REQUEST['nc_code']!="")
+{
+
+$nc_code=$_REQUEST['nc_code'];
+if($nc_code=="CA0100")
+{
+$nc_code="NC0101";
+}
+}
+else
+{
+$nc_code=NC_CODE;
+}?>
+
 <?php 
 $objTimescaleT = new Timescale();
 $objCropsS = new Crops();	
@@ -100,37 +123,23 @@ $objUserCropsS->getUserCrops();
 							  {
 							   $dril_str.=", ";
 							  }  	
+							 	  ?>
+         <?php 
 		  }
-?>  
-
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- CSS scrollbar Files -->
-    <link id="pagestyle" href="assets/css/scrollbar.css" rel="stylesheet" />
-</head>
-
-<body >
-
-
-          
-     <div class="row mt-4">
-        <div class="col-lg-5 mb-lg-0 mb-4">
-          <div class="card">
-            <div class="card-body p-3">
-            
-                   <figure class="highcharts-figure">
+	  // end Canal Loop
+	 // echo  $srt_data;
+	 // echo $dril_str;?>  
+ <div class="row text-center">
+        <div class="col-sm-4" style="width:99.7%">
+          <div class="well" style="width:99.7%">
+       <figure class="highcharts-figure">
     <div id="container"></div>
     <script>
 // Returns 'column' if any point in array has negative value, default pie
 function drilldownType(drilldownData) {
   return drilldownData.reduce(function(acc, val) {
     if (acc !== 'column') {
-      acc = val[1] < 0 ? 'column' : 'pie'
+      acc = val[1] < 0 ? 'column' : 'bar'
     }
     return acc
   }, 'column')
@@ -141,13 +150,13 @@ function drilldownType(drilldownData) {
 // Create the chart
 Highcharts.chart('container', {
   chart: {
-    type: 'pie'
+    type: 'bar'
   },
    title: {
         text: 'Cropping Pattern Summary Irrigated Area/ha'
     },
     subtitle: {
-        text: 'Click the slices to view Canal Wise'
+        text: 'Year :<?php echo  $default_year; ?> ' 
     },
 	 plotOptions: {
         series: {
@@ -172,21 +181,7 @@ Highcharts.chart('container', {
 
 </script>
 </figure>
-                
-
-            </div>
-          </div>
-        </div>  
-
-        <div class="col-lg-7" >
-          <div class="card"  >
-      
-            <iframe class ="" src="includes/chart-right.php?yr_name= <?php echo $default_year; ?> " style = " height :450px  " ></iframe>
-   
           </div>
         </div>
+    	
       </div>
-
-    </body>
-
-</html>

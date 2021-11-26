@@ -209,7 +209,7 @@ $irrigationPeriod=0;
 	}
 </script>
 
-<div class="well">
+<div class="well" style="">
 	<table class="table table-bordered"  style="color:black" > 
 		<thead style="background-color:#000066; vertical-align:middle; text-align:center; color:#FFF">
 			<tr>

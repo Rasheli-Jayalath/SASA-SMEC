@@ -31,7 +31,9 @@ $objReports = new Reports();
   <!-- CSS scrollbar style -->
   <link id="pagestyle" href="../assets/css/scrollbarStyle.css" rel="stylesheet" />
 
-
+  <title>
+    SAS Management System
+  </title>
 
 
   <script src="../scripts/jquery.min.js"></script>
@@ -41,5 +43,17 @@ $objReports = new Reports();
   <script src="../Highcharts/code/modules/jquery.highchartTable.js"></script>
 </head>
 
+<body class= "" style="overflow-y: hidden;">
+      <?php include("../pages/cropping_pattern_graphs_bar.php");?>
+  <script>
+    var win = navigator.platform.indexOf('Win') > -1;
+    if (win && document.querySelector('#sidenav-scrollbar')) {
+      var options = {
+        damping: '0.5'
+      }
+      Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
+    }
 
-      <?php include("../pages/cropping_pattern_graphs.php");?>
+</body>
+
+</html>

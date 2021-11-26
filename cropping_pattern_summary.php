@@ -42,6 +42,9 @@ $objReports = new Reports();
     <!-- CSS scrollbar Files -->
     <link id="pagestyle" href="assets/css/scrollbar.css" rel="stylesheet" />
 
+  <!-- CSS scrollbar style -->
+  <link id="pagestyle" href="assets/css/scrollbarStyle.css" rel="stylesheet" />
+  
   <script src="scripts/jquery.min.js"></script>
   <script src="scripts/bootstrap.min.js"></script>
   <script src="Highcharts/code/highcharts.js"></script>
@@ -55,14 +58,13 @@ $objReports = new Reports();
 
 <body class="g-sidenav-show bg-gray-100">
 <div class= "sidebar 	" id="sidenav-main" style="overflow-y: hidden; bottom: 0: display: none;" >
-      <?php //include("includes/left_menu.php");?>
+      <?php include("includes/left_menu.php");?>
   </div>
   <main class="main-content mt-1 border-radius-lg" id="main-content">
     <!-- Navbar -->
     <?php include("includes/nav_header.php");?>
     <!-- End Navbar -->
 
-	    <div class="border"></div>
 
       <!-- ---------- Start content Editing ---------------- -->
 
@@ -71,9 +73,15 @@ $objReports = new Reports();
           <div class="col-12">
                 <div class="card mb-4">   
                       <div class="card-body px-0 pt-0 pb-2">    
+             
+                      <?php include("pages/cropping_pattern_graphs.php");?>
 
-        	<?php include("pages/cropping_pattern_graphs.php");?>
+ 
+
+          <div class=" horizontal-scrollable scroll" >
           <?php include("pages/cropping_pattern_summary.php");?>
+      </div>
+  
 
                       </div>  <!-- card-body px-0 pt-0 pb-2 -->
                 </div>  <!-- card mb-4 -->

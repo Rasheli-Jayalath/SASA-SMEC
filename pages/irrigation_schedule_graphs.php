@@ -176,8 +176,8 @@ $(function () {
 		</script>
 
       
-           <figure class="highcharts-figure" style="width:1400px">
-    <div id="container1" style="width:1400px"></div>
+           <figure class="highcharts-figure text-center" style="width:99.8%; margin-left: 0;">
+    <div id="container1" style="width:99.8%; margin-left: 0;"></div>
    
 </figure>
     

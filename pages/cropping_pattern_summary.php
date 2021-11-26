@@ -17,7 +17,7 @@ $end_period=$reports_rows["report_end_id"];
           	<table class="table table-bordered" style="color: black"> 
             <thead style="background-color:#000066; vertical-align:middle; text-align:center; color:#FFF">
             <tr>
-            <th colspan="40" align="center"><?php echo $report_title;?></th>
+            <th colspan="40" ><?php echo $report_title;?></th>
             </tr>
             <tr style="color:#fff">
             <th rowspan="2" style="text-align:center; vertical-align:middle">Canal Name</th>
