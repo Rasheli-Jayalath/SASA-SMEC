@@ -15,6 +15,7 @@ $objUserCropsS->getUserCrops();
  $tcrops=$objUserCropsS->totalRecords();
 	while($crows=$objUserCropsS->dbFetchArray())
 	{
+    if($crows["crp_area"]>0){
 		$crop_perc=($crows["crp_area"]/$total_crop_area)*100;
 		$crop_perc=number_format($crop_perc,2);
 		$j++;
@@ -29,7 +30,7 @@ $objUserCropsS->getUserCrops();
 							   $crp_atr.=" , ";
 							  } 
 							  
-		
+    }
 	}?>
   <?php
   
@@ -156,7 +157,9 @@ Highcharts.chart('container', {
             }
         }
     },
-
+    credits: {
+    enabled: false
+  },
   series: [{
     name: 'Crops',
     colorByPoint: true,

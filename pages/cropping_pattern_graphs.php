@@ -165,7 +165,9 @@ Highcharts.chart('container', {
             }
         }
     },
-
+	credits: {
+    enabled: false
+  },
   series: [{
     name: 'Crops',
     colorByPoint: true,
