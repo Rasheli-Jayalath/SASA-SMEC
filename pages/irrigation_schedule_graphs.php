@@ -143,7 +143,7 @@ $(function () {
                 x: -20 //center
             },
             subtitle: {
-                text: 'Month Wise (<?php echo $default_year;?>)',
+                text: 'Month Wise (<?php echo $default_year;?> )',
                 x: -20
             },
             xAxis: {
@@ -168,6 +168,9 @@ $(function () {
                 verticalAlign: 'middle',
                 borderWidth: 0
             },
+			credits: {
+                 enabled: false
+  },
             series: [<?php echo $crp_atr; ?>]
         });
     });

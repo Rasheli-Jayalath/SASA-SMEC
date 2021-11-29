@@ -34,24 +34,26 @@ $objUserCropsS->setProperty("GROUP_BY", 'cr_id');
 $objUserCropsS->setProperty("yr_name",$default_year);
 $objUserCropsS->getUserCrops();
  $j=0;
- 
+ $yAxis_titiles_array = array();
  $tcrops=$objUserCropsS->totalRecords();
 	while($crows=$objUserCropsS->dbFetchArray())
 	{
-		$crop_perc=($crows["crp_area"]/$total_crop_area)*100;
-		$crop_perc=number_format($crop_perc,2);
-		$j++;
-		
-		   $crp_atr.=' {
-                    name: "'.$crows["cr_name"].'",
-                    y: '.$crop_perc.',
-                    drilldown: "'.str_replace(" ","",$crows["cr_name"]).'"
-                }';
-				    if($j<$tcrops)
-							  {
-							   $crp_atr.=" , ";
-							  } 
-							  
+		if($crows["crp_area"]>0){
+			$crop_perc=($crows["crp_area"] /10);
+			$crop_perc=number_format($crop_perc,2);
+			$j++;
+			
+			$crp_atr.=' {
+						name: "'.$crows["cr_name"].'",
+						y: '.$crop_perc.',
+						drilldown: "'.str_replace(" ","",$crows["cr_name"]).'"
+					}';
+					array_push($yAxis_titiles_array,$crows["cr_name"]);
+						if($j<$tcrops)
+								{
+								$crp_atr.=" , ";
+								} 
+		}					  
 		
 	}?>
   <?php
@@ -122,7 +124,8 @@ $objUserCropsS->getUserCrops();
 				 if($i<$total_crops)
 							  {
 							   $dril_str.=", ";
-							  }  	
+							  }  
+							
 							 	  ?>
          <?php 
 		  }
@@ -132,7 +135,7 @@ $objUserCropsS->getUserCrops();
  <div class="row text-center">
         <div class="col-sm-4" style="width:99.7%">
           <div class="well" style="width:99.7%">
-       <figure class="highcharts-figure">
+       <figure class="highcharts-figure" style="width:101%; margin-left: -2%;">
     <div id="container"></div>
     <script>
 // Returns 'column' if any point in array has negative value, default pie
@@ -152,31 +155,46 @@ Highcharts.chart('container', {
   chart: {
     type: 'bar'
   },
-   title: {
-        text: 'Cropping Pattern Summary Irrigated Area/ha'
+  title: {
+    text: 'Irrigated Cropping Summary'
+  },
+  subtitle: {
+    text: 'Year (<?php echo $default_year;?> )'
+  },
+  xAxis: {
+    categories: [<?php echo " '" .join($yAxis_titiles_array, '\', \''). "'"; ?>],
+    title: {
+      text: null
+    }
+  },
+  yAxis: {
+    min: 0,
+    title: {
+      text: 'Area in Hectares'
     },
-    subtitle: {
-        text: 'Year :<?php echo  $default_year; ?> ' 
-    },
-	 plotOptions: {
-        series: {
-            dataLabels: {
-                enabled: true
-            }
-        }
-    },
-
+    labels: {
+      overflow: 'justify'
+    }
+  },
+  tooltip: {
+    valueSuffix: ' hectares '
+  },
+  plotOptions: {
+    bar: {
+      dataLabels: {
+        enabled: true
+      }
+    }
+  },
+  credits: {
+    enabled: false
+  },
   series: [{
-    name: 'Crops',
+    showInLegend: false,
+    name: 'Area in Hectares',
     colorByPoint: true,
     data: [<?php echo $crp_atr;?>]
-  }],
-  drilldown: {
-    series: [
-	
-	<?php echo $dril_str;?>
-	]
-  }
+  }]
 });
 
 </script>

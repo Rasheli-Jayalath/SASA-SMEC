@@ -40,7 +40,7 @@ $nc_code=NC_CODE;
 <aside class="sidenav navbar navbar-vertical  border-0 border-radius-xl scrolll-sidebar " style="overflow-y: hidden; overflow-x: hidden; background-color: #dee2e6; height: 95vh;"   id="sidenav-main ">
 <div class="sidenav-header mt-n3 mb-3 text-center"  style ="">
       <i class="fas fa-times p-3 cursor-pointer text-secondary opacity-5 position-absolute right-0 top-0 d-none d-xl-none" aria-hidden="true" id="iconSidenav"></i>
-      <a class="navbar-brand m-0" href="index.php">
+      <a class="navbar-brand m-0" href="../index.php">
         <div  >
           <img src="../assets/img/logo-ct.png" class="  " style=" max-height: 40px ; " alt="...">
         </div>
