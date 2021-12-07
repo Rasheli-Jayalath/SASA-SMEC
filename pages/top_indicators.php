@@ -28,7 +28,7 @@
                       $sum = $row['total'];
                       echo $sum;                 
                     ?>
-                      <span class="text-success text-sm font-weight-bolder">Hecter</span>
+                      <span class="text-success text-sm font-weight-bolder">Hectares</span>
                     </h5>
                   </div>
                 </div>
@@ -71,7 +71,7 @@
                     ?>
 
                     
-                    <span class="text-success text-sm font-weight-bolder">Per Hecter</span>
+                    <span class="text-success text-sm font-weight-bolder">Per Hectare</span>
                       <?php /*?><span class="text-success text-sm font-weight-bolder">+3%</span><?php */?>
                     </h5>
                   </div>

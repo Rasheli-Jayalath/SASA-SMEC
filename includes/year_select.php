@@ -5,7 +5,7 @@
 
                       <option value="0" >Selectin</option>
                       <?php 
-                        $sql = "SELECT * FROM wh_004_year_main ORDER BY yr_name";
+                        $sql = "SELECT * FROM tbl001_year_main ORDER BY yr_name";
                         $result = mysqli_query($connection , $sql);		
                         while ($row = mysqli_fetch_array($result)){
                         echo "<option value=".$row['yr_name'].">".$row['yr_name']."</option>";                      

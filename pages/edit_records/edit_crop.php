@@ -124,7 +124,7 @@ $(document).ready(function(){
 
               <div class="  py-4 ms-2 me-2">
 
-                <form action="../../Classes/save/crop_table_save.php?cr_id=<?php echo $cr_id ?>"  method="post" class="text-white" enctype="multipart/form-data" autocomplete="off">
+                <form action="../../classes/save/crop_table_save.php?yr_name=12&cr_id=<?php echo $cr_id ?>"  method="post" class="text-white" enctype="multipart/form-data" autocomplete="off">
 
                   <div class = "form-group">
                       <input type="text" name="cr_name"         minlength="2" maxlength="10"  <?php echo 'value="' . $cr_name . '"'; ?>    placeholder="Crop Name "         required  class="form-control move-on-hover" >

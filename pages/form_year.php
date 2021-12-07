@@ -28,7 +28,7 @@ include_once("../config/config.php");
 
 
 
-      $sql = "SELECT * FROM wh_004_year_main WHERE yr_name = '{$year}' ";		
+      $sql = "SELECT * FROM tbl001_year_main WHERE yr_name = '{$year}' ";		
       $check = mysqli_query($connection, $sql);
       
       if (mysqli_num_rows($check) > 0) {
@@ -39,7 +39,7 @@ include_once("../config/config.php");
 
         
       } else {
-         $query = "INSERT INTO wh_004_year_main  ( ";
+         $query = "INSERT INTO tbl001_year_main  ( ";
          $query .= "yr_name, yr_status";
          $query .= ") VALUES (";
          $query .= "'{$year}', '{$year_status}' ";

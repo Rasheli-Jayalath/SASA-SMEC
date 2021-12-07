@@ -1,6 +1,6 @@
 <!--     making the connection with DB     -->
   <?php require_once('../../Config/connection.php'); ?>
-  <?php  include '../Config/getting_year.php';  ?>
+  <?php  //include '../Config/getting_year.php';  ?>
 
       
       <!-- adding records to the database  -->
@@ -11,7 +11,11 @@
         $cr_id ='';
         if( isset($_GET['cr_id'])   ){
           $cr_id = $_GET['cr_id'] ;
+        }     
+        if( isset($_GET['yr_name'])   ){
+          $year = $_GET['yr_name'] ;
         }
+    
     
         $cr_name =       $_POST['cr_name'];
         $cr_wat_req =    $_POST['cr_wat_req'];
@@ -56,7 +60,7 @@
           $query = "INSERT INTO wh_001_crops_main ( ";
           $query .= "yr_name,     cr_name,      cr_wat_req";
           $query .= ") VALUES (";
-          $query .= "'{$year}', '{$cr_name}', '{$cr_wat_req}'";
+          $query .= "'{$cr_name}', '{$cr_name}', '{$cr_wat_req}'";
           $query .= ")";
 
 

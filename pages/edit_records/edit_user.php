@@ -1,6 +1,6 @@
   <!--     making the connection with DB     -->
   <?php require_once('../../Config/connection.php'); ?>
-  <?php  include '../../Classes/check_equality.php';  ?>
+  <?php  include '../../classes/check_equality.php';  ?>
   
 <!DOCTYPE html>
 <html lang="en">
@@ -136,7 +136,7 @@ $(document).ready(function(){
                   } ?>  
               <div class="  py-4 ms-2 me-2">
 
-                <form action="../../Classes/save/user_table_save.php?u_id= <?php echo $u_id ?>"  method="post" class="text-white" enctype="multipart/form-data" autocomplete="off">
+                <form action="../../classes/save/user_table_save.php?u_id= <?php echo $u_id ?>"  method="post" class="text-white" enctype="multipart/form-data" autocomplete="off">
 
                   <div class = "form-group">
                       <input type="text" name="u_name"         minlength="2" maxlength="30"   <?php echo 'value="' . $u_name . '"'; ?>   placeholder="User Name "                   required  class="form-control move-on-hover" >

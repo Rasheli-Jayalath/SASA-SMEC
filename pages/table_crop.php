@@ -67,7 +67,7 @@ include_once("../config/config.php");
               document.getElementById("display_form").innerHTML=this.responseText;
             }
           }
-          xmlhttp.open("GET","../Scripts/table_ajax/ajax_crop.php?q="+str,true);
+          xmlhttp.open("GET","../Scripts/table_ajax/ajax_crop.php?yr_name=<?php echo $year; ?>&q="+str,true);
           xmlhttp.send();
 
           }
@@ -79,6 +79,7 @@ include_once("../config/config.php");
         $year =  $_GET['yr_name'];
         $yr_name = " AND yr_name = ". $year ;
       }else{
+        $year = $default_year;
         $yr_name = " AND yr_name = ". $default_year;
       }
       ?>
@@ -159,18 +160,18 @@ include_once("../config/config.php");
          $table .= "</table>";
 
            // first page
-	$first = "<a href=\"table_crop.php?p=1\"> <i class=\"fa fa-angle-double-left\"></i>   First  </a>";
+	$first = "<a href=\"table_crop.php?p=1&yr_name={$year}\"> <i class=\"fa fa-angle-double-left\"></i>   First  </a>";
 
 	// last page
 	$last_page_no = ceil($total_results/$result_per_page);
-	$last = "<a href=\"table_crop.php?p={$last_page_no}\">Last  <i class=\"fa fa-angle-double-right\"></i></a>";
+	$last = "<a href=\"table_crop.php?p={$last_page_no}&yr_name={$year}\">Last  <i class=\"fa fa-angle-double-right\"></i></a>";
 
 	// next page
 	if ($page_no >= $last_page_no) {
 		$next = "<a>Next   <i class=\"fa fa-angle-right\"></i> </a>";
 	} else {
 		$next_page_no = $page_no + 1;
-		$next = "<a href=\"table_crop.php?p={$next_page_no}\">Next   <i class=\"fa fa-angle-right\"></i>  </a>";	
+		$next = "<a href=\"table_crop.php?p={$next_page_no}&yr_name={$year}\">Next   <i class=\"fa fa-angle-right\"></i>  </a>";	
 	}
 	
 	// previous page
@@ -178,7 +179,7 @@ include_once("../config/config.php");
 		$prev = "<a><i class=\"fa fa-angle-left\"></i>   Previous</a>";
 	} else {
 		$prev_page_no = $page_no - 1;
-		$prev = "<a href=\"table_crop.php?p={$prev_page_no}\"> <i class=\"fa fa-angle-left\"></i>  Previous</a>";	
+		$prev = "<a href=\"table_crop.php?p={$prev_page_no}&yr_name={$year}\"> <i class=\"fa fa-angle-left\"></i>  Previous</a>";	
 	}
 	
     if($total_results >10){

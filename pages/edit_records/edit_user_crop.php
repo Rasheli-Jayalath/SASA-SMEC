@@ -1,6 +1,6 @@
 <!--     making the connection with DB     -->
   <?php require_once('../../Config/connection.php'); ?>
-  <?php  include '../../Classes/check_equality.php';  ?>
+  <?php  include '../../classes/check_equality.php';  ?>
   <?php  include '../../Config/getting_year.php';  ?>
 
 
@@ -134,7 +134,7 @@ $(document).ready(function(){
                   } ?>  
               <div class="  py-4 ms-2 me-2">
 
-                <form action="../../Classes/save/user_crop_table_save.php?ucp_id=<?php echo $ucp_id ?>"  method="post" class="text-white" enctype="multipart/form-data" autocomplete="off">
+                <form action="../../classes/save/user_crop_table_save.php?ucp_id=<?php echo $ucp_id ?>"  method="post" class="text-white" enctype="multipart/form-data" autocomplete="off">
 
                   <div class = "form-group">
                       Select the Crop Name  : &nbsp; 
