@@ -1,6 +1,6 @@
   <!--     making the connection with DB     -->
   <?php require_once('../../Config/connection.php'); ?>
-  <?php  include '../../Classes/check_equality.php';  ?>
+  <?php  include '../../classes/check_equality.php';  ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -181,7 +181,7 @@ if(isset($_GET['msg']) AND isset($_GET['status']) ){
             
 
               <div class="  py-4 ms-2 me-2">
-                <form action="../../Classes/save/save_network_canal.php?nc_id=<?php echo $nc_id ?>" method="post" class="text-white" enctype="multipart/form-data" autocomplete="off">
+                <form action="../../classes/save/save_network_canal.php?nc_id=<?php echo $nc_id ?>" method="post" class="text-white" enctype="multipart/form-data" autocomplete="off">
                 
                   <div class = "form-group">
 

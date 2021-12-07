@@ -1,6 +1,6 @@
   <!--     making the connection with DB     -->
   <?php require_once('../../Config/connection.php'); ?>
-  <?php  include '../../Classes/check_equality.php';  ?>
+  <?php  include '../../classes/check_equality.php';  ?>
 
 
 <!DOCTYPE html>
@@ -156,7 +156,7 @@ $(document).ready(function(){
                   } ?>  
               <div class="  py-4 ms-2 me-2">
 
-                <form action="../../Classes/save/user_canal_table_save.php?uc_id= <?php echo $uc_id ?>"  method="post" class="text-white" enctype="multipart/form-data" autocomplete="off">
+                <form action="../../classes/save/user_canal_table_save.php?uc_id= <?php echo $uc_id ?>"  method="post" class="text-white" enctype="multipart/form-data" autocomplete="off">
 
                   <div class = "form-group">
 
