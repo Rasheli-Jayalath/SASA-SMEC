@@ -3,7 +3,7 @@
 if(isset($_GET['q'])){
     $q = intval($_GET['q']);
  
-    $connection = mysqli_connect('localhost', 'root', '', 'sas'); 
+    $connection = mysqli_connect('localhost', 'root', '', 'sas20210601'); 
 
     mysqli_select_db($connection,"ajax_demo");
 

@@ -14,7 +14,8 @@ $end_period=$reports_rows["report_end_id"];
         <div class="col-12">
           <div class="card mb-4">
             <div class="card-header pb-0">
-              <h6><?php echo $report_title." ".$default_year;?></h6>
+              <h6><?php //echo $report_title." ".$default_year; 
+			  echo "Proposed Irrigation Schedule (m<sup>3</sup>/ha) for ".$default_year; ?></h6>
             </div>
             <div class="card-body px-0 pt-0 pb-2">
               <div class="table-responsive p-0">

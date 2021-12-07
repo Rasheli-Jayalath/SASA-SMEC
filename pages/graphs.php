@@ -145,7 +145,7 @@ Highcharts.chart('container', {
     type: 'pie'
   },
    title: {
-        text: 'Cropping Pattern Summary Irrigated Area/ha'
+        text: 'Cropping Pattern Summary Irrigated Area %'
     },
     subtitle: {
         text: 'Click the slices to view Canal Wise'

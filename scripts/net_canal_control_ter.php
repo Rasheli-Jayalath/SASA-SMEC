@@ -4,7 +4,7 @@ if(isset($_GET['second']) AND isset($_GET['ca_id']) ){
       $ca_id = $_GET['ca_id'];
       $q = $_GET['second'];
  
-      $connection = mysqli_connect('localhost', 'root', '', 'sas'); 
+      $connection = mysqli_connect('localhost', 'root', '', 'sas20210601'); 
   
       mysqli_select_db($connection,"ajax_demo");
   

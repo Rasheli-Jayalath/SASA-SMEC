@@ -11,7 +11,7 @@
                     <p class="text-sm mb-0 text-capitalize font-weight-bold">Total Irrigated Area</p>
                     <h5 class="font-weight-bolder mb-0">
                     <?php  
-                      $sql = " SELECT SUM(ca_area) AS total FROM wh_000_command_area ";		
+                      $sql = " SELECT sum(uc_area) as total FROM wh_002_users_canal ";		
 					    if(isset($_REQUEST['yr_name'])&& $_REQUEST['yr_name']!="")
 						{
 						$default_year=$_REQUEST['yr_name'];
@@ -26,7 +26,7 @@
                       $result = mysqli_query($connection, $sql) or die( mysqli_error($connection));           
                       $row = mysqli_fetch_assoc($result) ;	
                       $sum = $row['total'];
-                      echo $sum;                 
+                      echo number_format($sum,2);                 
                     ?>
                       <span class="text-success text-sm font-weight-bolder">Hectares</span>
                     </h5>
@@ -71,7 +71,7 @@
                     ?>
 
                     
-                    <span class="text-success text-sm font-weight-bolder">Per Hectare</span>
+                    <span class="text-success text-sm font-weight-bolder">m<sup>3</sup>/ha</span>
                       <?php /*?><span class="text-success text-sm font-weight-bolder">+3%</span><?php */?>
                     </h5>
                   </div>
@@ -130,7 +130,7 @@
               <div class="row">
                 <div class="col-8">
                   <div class="numbers">
-                    <p class="text-sm mb-0 text-capitalize font-weight-bold">Primary Canals</p>
+                    <p class="text-sm mb-0 text-capitalize font-weight-bold">Secondary Canals</p>
                     <h5 class="font-weight-bolder mb-0">
                     <?php  
                       $sql = " SELECT * FROM wh_000_command_area WHERE ca_parent_id = 0 AND is_deleted = 0 ";
@@ -146,8 +146,9 @@
 						}					
                       $result = mysqli_query($connection, $sql) or die( mysqli_error($connection));           
                       $total_p_canal = mysqli_num_rows($result) ;	
-                      echo $total_p_canal;
+                     // echo $total_p_canal;
                     ?>
+                    Kapal
                       <?php /*?><span class="text-danger text-sm font-weight-bolder">-2%</span><?php */?>
                     </h5>
                   </div>
