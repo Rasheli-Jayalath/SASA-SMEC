@@ -150,14 +150,8 @@ $(function () {
     
 
 		</script>
- <div class="row">
-        <div class="col-sm-4" style="width:1400px">
-          <div class="well" style="width:1400px">
-           <figure class="highcharts-figure" style="width:1390px">
-    <div id="container" style="width:1390px"></div>
-   
-</figure>
-          </div>
-        </div>
-    	
-      </div>
+
+
+           <figure class="highcharts-figure text-center" style="width:99.8%; margin-left: 0;">
+              <div id="container" style="width:99.8%; margin-left: 0;"></div>
+           </figure>
