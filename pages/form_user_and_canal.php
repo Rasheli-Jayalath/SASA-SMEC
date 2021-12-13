@@ -1,3 +1,4 @@
+<?php  include '../Config/getting_year.php';  ?>
   <!--     making the connection with DB     -->
   <?php require_once('../Config/connection.php'); ?>
 
@@ -24,24 +25,71 @@
   <link id="pagestyle" href="../assets/css/soft-ui-dashboard.css?v=1.0.2" rel="stylesheet" />  
   <!-- CSS scrollbar style -->
   <link id="pagestyle" href="../assets/css/scrollbarStyle.css" rel="stylesheet" />
+  
  <!-- sidebar  -->
  <script src="../scripts/mainpages.js"></script>
 </head>
 
 <body class="g-sidenav-show   bg-gray-100">
-<div class= "sidebar 	" id="sidenav-main" style="overflow-y: hidden; bottom: 0: display: none;" >
-      <?php include("../includes/left_menu1.php");?>
-  </div>
-  <main class="main-content mt-1 border-radius-lg" id="main-content">
-    <!-- Navbar -->
-    <?php include("../includes/nav_header.php");?>
-    <!-- End Navbar -->
-      <!-- Start content Editing -->
-		
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+    $('#ca_main').on('change', function(){
+        var caID = $(this).val();
+        if(caID){
+            $.ajax({
+                type:'POST',
+                url:'../scripts/ajaxData.php',
+                data:'ca_id='+caID,
+                success:function(html){
+                    $('#secondary').html(html);
+                    $('#tertiary').html('<option value="">Select Secondary-canal  first</option>'); 
+                }
+            }); 
+        }else{
+            $('#secondary').html('<option value="">Select Main Command-area first</option>');
+            $('#tertiary').html('<option value="">Select Secondary-canal first</option>'); 
+            $('#quaternary').html('<option value="">Select Tertiary-canal first</option>'); 
+        }
+    });
+    
+    $('#secondary').on('change', function(){
+        var secondaryID = $(this).val();
+        if(secondaryID){
+            $.ajax({
+                type:'POST',
+                url:'../scripts/ajaxData.php',
+                data:'nc_id='+secondaryID,
+                success:function(html){
+                    $('#tertiary').html(html);
+                }
+            }); 
+        }else{
+            $('#tertiary').html('<option value="">Select Secondary-canal first</option>'); 
+            $('#quaternary').html('<option value="">Select Tertiary-canal first</option>'); 
+        }
+    });
 
 
-    <script  type="text/javascript">
-    var ca_id ;
+    $('#tertiary').on('change', function(){
+        var tertiaryID = $(this).val();
+        if(tertiaryID){
+            $.ajax({
+                type:'POST',
+                url:'../scripts/ajaxData.php',
+                data:'nc_id_tertiary='+tertiaryID,
+                success:function(html){
+                    $('#quaternary').html(html);
+                }
+            }); 
+        }else{
+            $('#quaternary').html('<option value="">Select Quaternary-canal first</option>'); 
+        }
+    });
+
+});
+
+var ca_id ;
   
   function yesnoCheck(str) {
     ca_id = str;
@@ -66,57 +114,47 @@
       }
   
   }
-
-  function checking(str) {
-
-    if (str=="") {
-    document.getElementById("canal_type_option").innerHTML="";
-    return;
-  }
-  var xmlhttp=new XMLHttpRequest();
-  xmlhttp.onreadystatechange=function() {
-    if (this.readyState==4 && this.status==200) {
-      document.getElementById("canal_type_option").innerHTML=this.responseText;
-    }
-  }
-  xmlhttp.open("GET","../Scripts/net_canal_control_ter.php?ca_id="+ ca_id +"&second="+str,true);
-  xmlhttp.send();
-
-      if (str != null ) {    
-                     
-          document.getElementById("Ter").style.display = "block";
-      } else {
-          document.getElementById("Ter").style.display = "none";
-      }
-}
-
-    </script>
-						
-<?php
-
-if(isset($_GET['msg']) AND isset($_GET['status']) ){  
+</script>
 
 
-  echo "<div class=\"alert alert-warning alert-dismissible fade show\" role=\"aler\">";
-  echo "<span class=\"alert-icon\"><i class=\"ni ni-bell-55\"></i></span>";
-  echo "<span class=\"alert-text\"><strong>";
-  echo " </strong> ";
-  echo $_GET['msg']; 
-  echo "</span>";
-  echo "<button type=\"button\" class=\"btn-close\" data-bs-dismiss=\"alert\" aria-label=\"Close\">";
-  echo " <span aria-hidden=\"true\">&times;</span>";
-  echo "</button>";
-  echo "</div>";
+<div class= "sidebar 	" id="sidenav-main" style="overflow-y: hidden; bottom: 0: display: none;" >
+      <?php include("../includes/left_menu1.php");?>
+  </div>
+  <main class="main-content mt-1 border-radius-lg" id="main-content">
+    <!-- Navbar -->
+    <?php include("../includes/nav_header.php");?>
+    <!-- End Navbar -->
+      <!------------------- Start content Editing ------------------>
 
-}
 
-?>
+
+		
+      <?php
+
+        if(isset($_GET['msg']) AND isset($_GET['status']) ){  
+
+
+          echo "<div class=\"alert alert-warning alert-dismissible fade show\" role=\"aler\">";
+          echo "<span class=\"alert-icon\"><i class=\"ni ni-bell-55\"></i></span>";
+          echo "<span class=\"alert-text\"><strong>";
+          echo " </strong> ";
+          echo $_GET['msg']; 
+          echo "</span>";
+          echo "<button type=\"button\" class=\"btn-close\" data-bs-dismiss=\"alert\" aria-label=\"Close\">";
+          echo " <span aria-hidden=\"true\">&times;</span>";
+          echo "</button>";
+          echo "</div>";
+
+        }
+
+      ?>			
     <div class="container-fluid py-4 ">        
         <div class="col-md-6 m-auto py-4  bg-gradient-secondary">
            <div class="col-md-10 m-auto py-4 border border-secondary rounded ">
               <div class="col-md-10 m-auto py-4  ">
 
-                <form action="../Classes/save/save_network_canal.php" method="post" class="text-white" enctype="multipart/form-data" autocomplete="off">
+                <form action="../Classes/save/user_crop_table_save.php"  method="post" class="text-white" enctype="multipart/form-data" autocomplete="off">
+
                 <div class = "form-group">
                       Select the Users Name  : &nbsp; 
                           <select  name="uc_id" class="form-select move-on-hover" required>
@@ -132,38 +170,50 @@ if(isset($_GET['msg']) AND isset($_GET['status']) ){
                                     ?>       
                           </select>
                   </div>
-                  <div class = "form-group">
 
-                  Select the Main component : &nbsp; 
-                      <select onchange="yesnoCheck(this.value);"  name="main_comp_id" class="form-select move-on-hover" required>
-                          <option value="">Select...</option>
-                                <?php 
-                                     $sql = "SELECT * FROM wh_000_command_area WHERE ca_parent_id=0 ORDER BY ca_id";
-                                     $result = mysqli_query($connection , $sql);		
-                                  while ($row = mysqli_fetch_array($result)){
-                                    echo "<option value=".$row['ca_id'].">".$row['ca_name']."</option>";                      
-                                         
-                     
-                                  }
-                                ?>       
-                      </select>
+                  <div class = "form-group" >
+                     Main Command Area : &nbsp; 
+                          <select id="ca_main" name="" class="form-select move-on-hover" required onchange="yesnoCheck(this.value);" >
+                          <option value="">Select Main Command Area</option>
+                              <?php 
+                                 // Fetch all the ca_main data 
+                          $query = "SELECT * FROM wh_000_command_area WHERE ca_parent_id = 0 AND yr_name= '$default_year' ORDER BY ca_name ASC"; 
+                          $result = $connection->query($query); 
 
+                              if($result->num_rows > 0){ 
+                                  while($row = $result->fetch_assoc()){  
+                                      echo '<option value="'.$row['ca_id'].'">'.$row['ca_name'].'</option>'; 
+                                  } 
+                              }else{ 
+                                  echo '<option value="">Main Command Area not available</option>'; 
+                              } 
+                              ?>
+                              
+                          </select>
                   </div>
                   <div id="txtHint">  </div>
-
-                  <div class = "form-group">
-                      Canal type : &nbsp; 
-                      <select name="nc_type" class="form-select move-on-hover"  onchange="checking(this.value);" required>
-                        <option value="">            Select...   </option>
-                        <option value="Secondary">   Secondary   </option>
-                        <option value="Tertiary">    Tertiary    </option>
-                        <option value="Quaternary">  Quaternary  </option>
-                        <option value="Aggregate">   Aggregate   </option>                              
-                      </select>
-
+                  <div class = "form-group" >
+                       Secondary Canal : &nbsp; 
+                          <select id="secondary" name="" class="form-select move-on-hover" required>
+                              <option value="">Select Main Command-area first</option>
+                          </select>
                   </div>
-                  <div id="canal_type_option">  </div>
-                  
+
+                  <div class = "form-group" >
+                      Tertiary Canal : &nbsp; 
+                          <select id="tertiary" name="" class="form-select move-on-hover" required>
+                             <option value="">Select Secondary-canal first</option>
+                          </select>
+                  </div>
+
+                  <div class = "form-group" >
+                     Quaternary Canal: &nbsp; 
+                          <select id="quaternary" name="" class="form-select move-on-hover" required>
+                             <option value="">Select Tertiary-canal first</option>
+                          </select>
+                  </div>
+
+
                   <div class = "form-group">
                       Select the Crop Name  : &nbsp; 
                           <select  name="cr_id" class="form-select move-on-hover" required>
@@ -179,14 +229,60 @@ if(isset($_GET['msg']) AND isset($_GET['status']) ){
                                     ?>       
                           </select>
                   </div>
+
+
                   <div class = "form-group input-group  move-on-hover">
-                      <input type="text" name="nc_command_area"  minlength="1" maxlength="15"     placeholder="Area"               required  class="form-control " >
-                      <span class="input-group-text">Hectare</i></span>
+                      <input type="text" name="ucp_area"    minlength="2" maxlength="30"     placeholder="Total Area to be irrigated"   required  class="form-control \" >
+                      <span class="input-group-text">
+
+                        <select name="u_area_unit" class="form-select move-on-hover" style = "width: 150px;"  >
+                            <option value="Hectare">   Hectare    </option>
+                            <option value="Acre">      Acre       </option>
+                            <option value="Sqr KM ">   Sqr KM     </option>
+                            <option value="Sqr yard">  Sqr yard   </option>                              
+                        </select>
+  
+                      </span>
                   </div>
 
-                   <button type="submit" name="submit" value="submit" class="btn bg-gradient-dark btn-lg  m-auto">Save</button>             
+                  <div class = "form-group">
+                      Select the Crop Name  : &nbsp; 
+                          <select  name="cr_id" class="form-select move-on-hover" required>
+                              <option value="">Select...</option>
+                                    <?php 
+                                        $sql = "SELECT * FROM wh_001_crops_main  ORDER BY cr_id";
+                                        $result = mysqli_query($connection , $sql);		
+                                      while ($row = mysqli_fetch_array($result)){
+                                        echo "<option value=".$row['cr_id'].">".$row['cr_name']."</option>";                      
+                                            
+                        
+                                      }
+                                    ?>       
+                          </select>
+                  </div>
+
+
+                  <div class = "form-group input-group  move-on-hover">
+                      <input type="text" name="ucp_area"    minlength="2" maxlength="30"     placeholder="Total Area to be irrigated"   required  class="form-control \" >
+                      <span class="input-group-text">
+
+                        <select name="u_area_unit" class="form-select move-on-hover" style = "width: 150px;"  >
+                            <option value="Hectare">   Hectare    </option>
+                            <option value="Acre">      Acre       </option>
+                            <option value="Sqr KM ">   Sqr KM     </option>
+                            <option value="Sqr yard">  Sqr yard   </option>                              
+                        </select>
+  
+                      </span>
+                  </div>
+
+                   <button type="submit" name="submit" value="submit" class="btn bg-gradient-dark btn-lg  m-auto">Save</button>
+
+              
                 </form>
-             </div>
+
+
+              </div>
             </div>
           </div>
           
