@@ -245,6 +245,7 @@ var ca_id ;
                       </span>
                   </div>
 
+                  
                   <div class = "form-group">
                       Select the Crop Name  : &nbsp; 
                           <select  name="cr_id" class="form-select move-on-hover" required>
@@ -275,6 +276,8 @@ var ca_id ;
   
                       </span>
                   </div>
+
+                  
 
                    <button type="submit" name="submit" value="submit" class="btn bg-gradient-dark btn-lg  m-auto">Save</button>
 
