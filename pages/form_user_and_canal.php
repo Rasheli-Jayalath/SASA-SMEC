@@ -245,7 +245,6 @@ var ca_id ;
                       </span>
                   </div>
 
-                  
                   <div class = "form-group">
                       Select the Crop Name  : &nbsp; 
                           <select  name="cr_id" class="form-select move-on-hover" required>
@@ -276,6 +275,7 @@ var ca_id ;
   
                       </span>
                   </div>
+
 
                   
 

@@ -37,7 +37,7 @@ else
 $nc_code=NC_CODE;
 }?>  
 
-<aside class="sidenav navbar navbar-vertical  border-0 border-radius-xl scrolll-sidebar " style="overflow-y: hidden; overflow-x: hidden; background-color: #dee2e6; height: 95vh;"   id="sidenav-main ">
+<aside class="sidenav navbar navbar-vertical  border-0 border-radius-xl scrolll-sidebar mt-n2" style="overflow-y: hidden; overflow-x: hidden; background-color: #dee2e6; height: 99vh;"   id="sidenav-main ">
 <div class="sidenav-header mt-n3 mb-3 text-center"  style ="">
       <i class="fas fa-times p-3 cursor-pointer text-secondary opacity-5 position-absolute right-0 top-0 d-none d-xl-none" aria-hidden="true" id="iconSidenav"></i>
       <a class="navbar-brand m-0" href="../index.php">
@@ -87,6 +87,12 @@ $nc_code=NC_CODE;
   <a class="nav-link" href="../water_distribution_report.php?nc_code=<?php echo $nc_code;?>" style = " text-indent: -0.3em;"    title="  Canal-Wise Water Distribution Plan">
   <i class="nav-icon fas fa-file"></i> 
     <span class="nav-link-text ms-1">Canal-Wise Water Distribution.. </span>
+  </a>
+</li>
+<li class="nav-item">
+  <a class="nav-link" href="../report_table_irrigation.php?nc_code=<?php echo $nc_code;?>" style = " text-indent: -0.3em;"    title="Report Irrigation Schedule">
+  <i class="nav-icon fas fa-file"></i> 
+    <span class="nav-link-text ms-1">Report Irrigation Schedule </span>
   </a>
 </li>
 <li class="nav-item mt-3">
