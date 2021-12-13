@@ -1,4 +1,7 @@
-<?php require_once('../Config/connection.php'); ?>
+<?php  include '../Config/getting_year.php';  ?>
+  <!--     making the connection with DB     -->
+  <?php require_once('../Config/connection.php'); ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -22,11 +25,15 @@
   <link id="pagestyle" href="../assets/css/soft-ui-dashboard.css?v=1.0.2" rel="stylesheet" />  
   <!-- CSS scrollbar style -->
   <link id="pagestyle" href="../assets/css/scrollbarStyle.css" rel="stylesheet" />
+  
  <!-- sidebar  -->
  <script src="../scripts/mainpages.js"></script>
 </head>
 
 <body class="g-sidenav-show   bg-gray-100">
+
+
+
 <div class= "sidebar 	" id="sidenav-main" style="overflow-y: hidden; bottom: 0: display: none;" >
       <?php include("../includes/left_menu1.php");?>
   </div>
@@ -34,41 +41,37 @@
     <!-- Navbar -->
     <?php include("../includes/nav_header.php");?>
     <!-- End Navbar -->
-
-      <!-- Start content Editing -->
-      <div class="container-fluid py-4 ">        
-        <div class="col-md-8 m-auto py-4  bg-gradient-secondary">
-           <div class="col-md-10 m-auto py-4 border border-secondary rounded ">
-              <div class="col-md-10 m-auto py-4  "> 
-
-               <h4 class = "text-dark letter-wider text-center">
-                  <?php 
-                  if(isset($_GET['msg']) AND isset($_GET['year']) ){
-                    $year =  $_GET['year'];
-                    echo $_GET['msg'];
-                    
-                    }
-
-                  ?>
-                </h4>
-
-                <div class="row py-4">
-
-                    <a href=" form_year.php"   class="btn bg-gradient-dark  col-md-3 m-auto " > Go back  </a>			
-                    <!-- when select this User will again Located to       yearForm.php    page -->
-                      
-                    <a href='form_details.php?year= <?php echo $year ?>' class="btn bg-gradient-dark  col-md-3 m-auto ">  Continue  </a>
-                      <!-- When select this Continue to next form  which is  detailsForm.php page-->
-                </div>
+      <!------------------- Start content Editing ------------------>
 
 
-              </div>
-             </div>
-         </div>
-              
-        <!-- End content Editing -->
 
-        <footer class="footer pt-3">
+		
+      <?php
+
+        if(isset($_GET['msg']) AND isset($_GET['status']) ){  
+
+
+          echo "<div class=\"alert alert-warning alert-dismissible fade show\" role=\"aler\">";
+          echo "<span class=\"alert-icon\"><i class=\"ni ni-bell-55\"></i></span>";
+          echo "<span class=\"alert-text\"><strong>";
+          echo " </strong> ";
+          echo $_GET['msg']; 
+          echo "</span>";
+          echo "<button type=\"button\" class=\"btn-close\" data-bs-dismiss=\"alert\" aria-label=\"Close\">";
+          echo " <span aria-hidden=\"true\">&times;</span>";
+          echo "</button>";
+          echo "</div>";
+
+        }
+
+      ?>			
+    <div class="container-fluid py-4 ">        
+    <iframe class ="" src="aa_table_1.php?yr_name= <?php echo $default_year; ?> "  style = "width: 100%; height: 800px; overflow-y: hidden; margin-left: -1%;"  frameBorder="0"></iframe>
+ 
+          
+          <!-- End content Editing -->
+
+          <footer class="footer pt-3">
         <div class="container-fluid">
           <div class="row align-items-center justify-content-lg-between">
             <div class="col-lg-6 mb-lg-0 mb-4">

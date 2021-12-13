@@ -3,6 +3,9 @@
 <?php require_once('../Classes/select_latest_year.php'); ?>
 <?php  include '../Classes/get_cr_name.php';  ?>
 <?php  include '../Classes/get_u_name.php';  ?>
+<?php  include '../Classes/get_nc_id.php';  ?>
+<?php  include '../Classes/get_canal_name.php';  ?>
+<?php  include '../Classes/get_canal_type.php';  ?>
 <?php  include '../Classes/check_equality.php';  ?>
 <?php 
 include_once("../config/config.php");
@@ -124,7 +127,8 @@ include_once("../config/config.php");
                 <tr>
                   <th class=\"text-uppercase text-secondary text-xs font-weight-bolder opacity-7\"> Crop Name </th>
                   <th class=\"text-uppercase text-secondary text-xs font-weight-bolder opacity-7\"> User Name </th>
-                  <th class=\" text-uppercase text-secondary text-xs font-weight-bolder opacity-7\">Total Area to be irrigated</th>
+                  <th class=\" text-uppercase text-secondary text-xs font-weight-bolder opacity-7\">Total Area <br>to be irrigated</th>
+                  <th class=\" text-uppercase text-secondary text-xs font-weight-bolder opacity-7\">Canal Name & Type</th>
                   <th class=\"text-secondary text-xs opacity-7\"> Edit / Delete </th>
                 </tr>
                 </colgroup>
@@ -137,6 +141,15 @@ include_once("../config/config.php");
 
           $obj2 = new Get_u_name();
           $u_name = $obj2->_check( $row['uc_id'] ) ;
+
+          $obj3 = new Get_nc_id();
+          $nc_id = $obj3->_check( $row['uc_id'] ) ;
+
+          $obj4 = new Get_nc_name();
+          $nc_name = $obj4->_check( $nc_id) ;
+
+          $obj5 = new Get_nc_type();
+          $nc_type = $obj5->_check( $nc_id) ;
 
 
              $table .= "<tr>
@@ -152,11 +165,15 @@ include_once("../config/config.php");
                             <p class=\"text-xs font-weight-bold mb-0\"> $u_name </p>
                             </td>
 
-           
                             
                             <td>
                             <p class=\"text-xs font-weight-bold mb-0\"> {$row['ucp_area']} </p>
                             <p class=\"text-xs text-secondary mb-0\"> {$row['ucp_area_unit']}  </p>
+                            </td>
+
+                            <td>
+                            <p class=\"text-xs font-weight-bold mb-0\">    $nc_name  </p>
+                            <p class=\"text-xs text-secondary mb-0\"> $nc_type </p>
                             </td>
 
                             <td class=\"align-middle\">           
