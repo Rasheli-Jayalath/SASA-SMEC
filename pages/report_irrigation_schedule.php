@@ -99,17 +99,16 @@ $end_period=$reports_rows["report_end_id"];
 		 <?php }?>
      <td align="center"> -- </td>
      <td align="center"> <?php 
-          $query = "SELECT cr_wat_req FROM `wh_001_crops_main` WHERE yr_name = 2020;"; 
+          $query = "SELECT cr_wat_req FROM `wh_001_crops_main` WHERE yr_name = $default_year "; 
           $result = $connection->query($query); 
- 
+            if($result->num_rows > 0){ 
 
-if($result->num_rows > 0){ 
+                while($row = $result->fetch_assoc()){  
+                    echo ' '.$row['cr_wat_req']. ' '; 
 
-    while($row = $result->fetch_assoc()){  
-        echo ' '.$row['cr_wat_req']. ' '; 
-
-    } 
-} ?> </td>
+                } 
+            } ?>
+     </td>
   
      <td align="center">  </td>
 			</tr>
