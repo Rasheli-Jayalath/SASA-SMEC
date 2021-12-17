@@ -1,6 +1,7 @@
 <?php 
 $objTimescaleT = new Timescale();
-$objCropsS = new Crops();	 
+$objCropsS = new Crops();	
+$objCropsT = new Crops(); 
 $objReports->resetProperty();
 $objReports->setProperty("rps_id",3);
 $reports=$objReports->getReports();
@@ -39,6 +40,14 @@ $end_period=$reports_rows["report_end_id"];
    <th colspan="3" style="text-align:center"><?php echo date("F", strtotime($month));?></th>
     <?php }
 	$prev=$current; }?>
+    <th>
+    Total
+    </th>
+     <th>
+    Norm (m<sub>3</sub>/ha)
+    </th><th>
+    Difference
+    </th>
                     </tr>
                     <tr>
             <th >&nbsp;</th>
@@ -63,6 +72,12 @@ $end_period=$reports_rows["report_end_id"];
       <?php }
 	  $prv1=$current1;
 	  }?>
+      <th>
+      </th>
+      <th>
+      </th>
+      <th>
+      </th>
               </tr>
                   </thead>
                   <tbody>
@@ -79,17 +94,23 @@ $end_period=$reports_rows["report_end_id"];
   $objTimescaleT->setProperty("start",$start_period);
   $objTimescaleT->setProperty("end",$end_period);
   $timescae_res=$objTimescaleT->getTimescale();
+   $total_crop_sch=0;
 	while($trows=$objTimescaleT->dbFetchArray())
 	{
 		
 			$objCropsS->setProperty("cr_id", $crows["cr_id"]);
+			
 			$objCropsS->setProperty("ts_id", $trows["ts_id"]);
 			$objCropsS->getCropsSchedule();
 			$crp_sch=$objCropsS->dbFetchArray();
 	?>
 		 <td align="center"><?php echo number_format($crp_sch["sch_wat"]);?></td>
-          
-		 <?php }?>
+         
+		 <?php 
+		 $total_crop_sch+=$crp_sch["sch_wat"];}?>
+          <td align="center"><?php echo $total_crop_sch;?></td>
+          <td align="center"><?php echo $crows["cr_wat_req"];?></td>
+          <td align="center"><?php echo $crows["cr_wat_req"]-$total_crop_sch;?></td>
 			</tr>
             
         <?php 
