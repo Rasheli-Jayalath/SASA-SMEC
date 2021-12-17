@@ -77,7 +77,9 @@ include_once("config/config.php");
       </div>
 
 
-      <?php include("pages/footer.php");?>
+       <!-- footer -->
+       <?php include("includes/footer.php");?>
+        
     </div>
   </main>
   <!--   Core JS Files   -->

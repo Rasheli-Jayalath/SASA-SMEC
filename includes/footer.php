@@ -7,7 +7,7 @@
                 <script>
                   document.write(new Date().getFullYear())
                 </script>
-              <a href="https://www.smec.com/en_lk">SMEC International. </a></strong>
+              <a href="https://www.smec.com/en_lk" target="_blank" >SMEC International. </a></strong>
               </div>
             </div>
           </div>
