@@ -124,8 +124,6 @@
                                         $result = mysqli_query($connection , $sql);		
                                       while ($row = mysqli_fetch_array($result)){
                                         echo "<option value=".$row['u_id'].">".$row['u_name']."</option>";                      
-                                            
-                        
                                       }
                                     ?>       
                           </select>
