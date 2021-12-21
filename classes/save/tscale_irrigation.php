@@ -25,12 +25,11 @@
             $ts_id = $row['ts_id'];
             
             if( isset($_POST['sch_wat_value'.$i])  &&  isset($_POST['percent_value'.$i]) && isset($_POST['cr_id'])){
-       $errors[] = " noError1-".$i ;
        
-              $cr_id =         $_POST["cr_id"];
-              $sch_wat_value = $_POST["sch_wat_value'.$i.'"] ;
-              $percent_value = $_POST["percent_value'.$i.'"] ;
-$year = 2020;
+              $cr_id =         $_POST['cr_id'];
+              $sch_wat_value = $_POST['sch_wat_value'.$i] ;
+              $percent_value = $_POST['percent_value'.$i] ;
+              $year = 2020;
 
 
               $query = "INSERT INTO wh_001_crop_per_main ( ";
@@ -38,27 +37,26 @@ $year = 2020;
               $query .= ") VALUES (";
               $query .= "'{$year}', '{$cr_id}', '{$ts_id}' , '{$sch_wat_value}' , '{$percent_value}'";
               $query .= ")";
-            }
 
+              $result_save = mysqli_query($connection, $query);
+              if (!$result_save) {
+                $errors[] = 'Failed to add the new record';
+              } 
+            }
           $i++;
           }
         }else if( isset($_GET['cwp_id'])   ){
 
           $query = " UPDATE wh_001_crop_per_main SET ";
 
-          $query .= "uc_id = '{$uc_id}', ";        
+          $query .= "sch_wat = '{$sch_wat}', ";        
           $query .= "cr_id = '{$cr_id}', ";
-          $query .= "ucp_area = '{$ucp_area}', ";
-          $query .= "ucp_area_unit = '{$ucp_area_unit}', ";
           $query .= "yr_name = '{$yr_name}' ";
 		    
-          $query .= " WHERE ucp_id = {$ucp_id}";
+          $query .= " WHERE cwp_id = {$cwp_id}";
 
        }
-        $result = mysqli_query($connection, $query);
-        if (!$result) {
-          $errors[] = 'Failed to add the new record';
-        }     								
+        								
       }
 
       if (!empty($errors)) {
