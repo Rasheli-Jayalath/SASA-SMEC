@@ -13,10 +13,10 @@ class check_active{
     function _check($checking_value, $latest_year){
         if( 2020 == $latest_year) {
             
-            echo "fghdfhhdfh";
+            echo "test";
         
         }else{
-            echo "ndsaibdisabdisabisbfisbfisisafbisa";
+            echo "test1";
         
         }
   

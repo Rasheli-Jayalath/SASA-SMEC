@@ -29,10 +29,10 @@ if(!empty($_POST["start_month_id"])){
     $ending_month = $_POST["ending_month"];
     $sql = "SELECT * FROM wh_001_tscale_main  WHERE yr_name = 2020  AND ts_month BETWEEN $starting_month AND $ending_month";
     $result = mysqli_query($connection , $sql);	
-
+    $i = 1;
     echo '<div class="row pt-3" >'; 
     while ($row = mysqli_fetch_array($result)) {
-     
+
 	$month_id = $row['ts_month'];
 
         echo '<div class="col-md-4" >'; 
@@ -41,13 +41,14 @@ if(!empty($_POST["start_month_id"])){
         $dedical_num = $obj->_check( $row['ts_period'] ) ; 
         echo '<b>'.$a[$month_id] .'</b> ('.$row['ts_period'].')  &nbsp; <b>Dedical-'.$dedical_num .'</b>'; 
         echo '<div style = " display: flex;">'; 
-        echo '<input class="form-control" type="number" value="" id="" min="0" placeholder="Enter value" style="width: 155%; padding-right: 0; ">   &nbsp; '; 
-        echo '<input class="form-control" type="number" value="" id="" min="0" max="100"placeholder="Percentage" style="width: 89%; border-top-right-radius: 0; border-bottom-right-radius: 0; padding-left: 5px; padding-right: 0; "> '; 
+        echo '<input class="form-control" type="number" value="" id="" min="0" placeholder="Enter value"" name="sch_wat_value'.$i.'" style="width: 155%; padding-right: 0; ">   &nbsp; '; 
+        echo '<input class="form-control" type="number" value="" id="" min="0" max="100"placeholder="Percentage" name="percent_value'.$i.'" style="width: 89%; border-top-right-radius: 0; border-bottom-right-radius: 0; padding-left: 5px; padding-right: 0; "> '; 
         echo '<span class="input-group-text" style="border-top-left-radius: 0; border-bottom-left-radius: 0; padding-right: 8px; padding-left: 5px;">%</span>';
         echo '</div>'; 
         echo '</div>'; 
         echo '</div>'; 
-        }
+        $i++;
+        }              
         echo '</div>'; 
     
 } 

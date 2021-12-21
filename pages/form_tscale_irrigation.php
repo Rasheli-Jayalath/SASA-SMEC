@@ -185,7 +185,7 @@ $(document).ready(function(){
            <div class="col-md-11 m-auto py-4 border border-secondary rounded ">
               <div class="col-md-11 m-auto py-4  ">            
 
-                <form action="#" method="post" class="text-white align-self-auto" enctype="multipart/form-data" autocomplete="off">
+                <form action="../Classes/save/tscale_irrigation.php" method="post" class="text-white align-self-auto" enctype="multipart/form-data" autocomplete="off">
                         <h5 class="text-center pb-2">Proposed irrigation schedule period for <?php echo $default_year; ?>  </h5>
 <div class="row pb-1">
 <div class="col-md-4">
@@ -207,7 +207,7 @@ $(document).ready(function(){
     <div class="form-group">
     Select Start Month : &nbsp; 
     <!-- start_month dropdown -->
-      <select  name=" " class="form-select move-on-hover" id="start_month" required>
+      <select  name="start_month" class="form-select move-on-hover" id="start_month" required>
          <option value="">Select Start Month</option>
          <?php 
           $default_year = 2020;
@@ -223,7 +223,7 @@ $(document).ready(function(){
   <div class="col-md-4">
     <div class="form-group">
     Select End Month: &nbsp; 
-      <select  name=" " class="form-select move-on-hover" id="end_month" required>
+      <select  name="end_month" class="form-select move-on-hover" id="end_month" required>
          <option value="">Select start month first</option>
       </select>
     </div>
