@@ -46,6 +46,15 @@ $(document).ready(function(){
                     $('#tertiary').html('<option value="">Select Secondary-canal  first</option>'); 
                 }
             }); 
+            $.ajax({
+                type:'POST',
+                url:'../scripts/ajaxData2.php',
+                data:'ca_id='+caID,
+                success:function(html){
+                    $('#txtHint').html(html);
+           
+                }
+            });
         }else{
             $('#secondary').html('<option value="">Select Main Command-area first</option>');
             $('#tertiary').html('<option value="">Select Secondary-canal first</option>'); 
@@ -89,31 +98,7 @@ $(document).ready(function(){
 
 });
 
-var ca_id ;
-  
-  function yesnoCheck(str) {
-    ca_id = str;
-    if (str=="") {
-    document.getElementById("txtHint").innerHTML="";
-    return;
-  }
-  var xmlhttp=new XMLHttpRequest();
-  xmlhttp.onreadystatechange=function() {
-    if (this.readyState==4 && this.status==200) {
-      document.getElementById("txtHint").innerHTML=this.responseText;
-    }
-  }
-  xmlhttp.open("GET","../Scripts/net_canal_control.php?q="+str,true);
-  xmlhttp.send();
 
-      if (str != null ) {    
-                     
-          document.getElementById("ifYes").style.display = "block";
-      } else {
-          document.getElementById("ifYes").style.display = "none";
-      }
-  
-  }
 </script>
 
 
