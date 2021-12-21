@@ -24,3 +24,5 @@ class Get_nc_name{
 
 
 }
+
+?>
