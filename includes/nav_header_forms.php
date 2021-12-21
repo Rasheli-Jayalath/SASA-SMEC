@@ -6,7 +6,7 @@
             <button  id="second" style="display:none;"> -</button>
             <button onclick="changeme(this.id);" class="button-rotate ml-2 d-none d-xl-block" > <i class="fa fa-bars" aria-hidden="true"></i></button>
             <div class=" d-none d-xl-block " >
-              <span class="text-dark font-weight-bold " style=""><strong>SMEC Agriculture Water Management System - Water Management System</strong></span>
+              <span class="text-dark font-weight-bold " style=""><strong>SMEC Agriculture Water Management System </strong></span>
             </div> 
          </div>         
         </nav>

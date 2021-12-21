@@ -146,5 +146,11 @@ $nc_code=NC_CODE;
     <span class="nav-link-text ms-1">Manage User and Crops </span>
   </a>
 </li>
+<li class="nav-item">
+  <a class="nav-link  " href="form_tscale_irrigation.php" style = " text-indent: -0.3em;"  title=" Proposed irrigation schedule period">
+     <i class="fas fa-circle nav-icon "></i>
+    <span class="nav-link-text ms-1">Proposed irrigation schedule..</span>
+  </a>
+</li>
 </ul>
   </aside>
