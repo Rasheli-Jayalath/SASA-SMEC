@@ -28,6 +28,20 @@
   
  <!-- sidebar  -->
  <script src="../scripts/mainpages.js"></script>
+ <style>
+.column {
+  float: left;
+  width: 50%;
+
+  
+}
+.column-1 {
+  padding-right: 2%;
+}
+.column-2 {
+  padding-left: 2%;
+}
+</style>
 </head>
 
 <body class="g-sidenav-show   bg-gray-100">
@@ -56,6 +70,7 @@ $(document).ready(function(){
                 }
             });
         }else{
+            $('#txtHint').html('<div></div>');
             $('#secondary').html('<option value="">Select Main Command-area first</option>');
             $('#tertiary').html('<option value="">Select Secondary-canal first</option>'); 
             $('#quaternary').html('<option value="">Select Tertiary-canal first</option>'); 
@@ -133,16 +148,18 @@ $(document).ready(function(){
         }
 
       ?>			
-    <div class="container-fluid py-4 ">        
-        <div class="col-md-6 m-auto py-4  bg-gradient-secondary">
-           <div class="col-md-10 m-auto py-4 border border-secondary rounded ">
-              <div class="col-md-10 m-auto py-4  ">
+  <div class="container-fluid py-4 " >        
+      <div class="col-md-11 m-auto py-4  bg-gradient-secondary" style="height:650px;">
+           <div class="col-md-11 m-auto py-4 border border-secondary rounded " style="height:102%;" >
+              <div class="col-md-11 m-auto py-4  ">
 
                 <form action="../Classes/save/user_crop_table_save.php"  method="post" class="text-white" enctype="multipart/form-data" autocomplete="off">
 
-                <div class = "form-group">
+                <div class="column column-1 col-md-12 " >
+
+                <div class = "form-group col-md-12">
                       Select the Users Name  : &nbsp; 
-                          <select  name="uc_id" class="form-select move-on-hover" required>
+                          <select  name="uc_id" class="form-select move-on-hover" >
                               <option value="">Select...</option>
                                     <?php 
                                         $sql = "SELECT * FROM wh_002_users  ORDER BY u_id";
@@ -156,9 +173,9 @@ $(document).ready(function(){
                           </select>
                   </div>
 
-                  <div class = "form-group" >
+                  <div class = "form-group col-md-12" >
                      Main Command Area : &nbsp; 
-                          <select id="ca_main" name="" class="form-select move-on-hover" required onchange="yesnoCheck(this.value);" >
+                          <select id="ca_main" name="" class="form-select move-on-hover"  onchange="yesnoCheck(this.value);" >
                           <option value="">Select Main Command Area</option>
                               <?php 
                                  // Fetch all the ca_main data 
@@ -176,32 +193,37 @@ $(document).ready(function(){
                               
                           </select>
                   </div>
-                  <div id="txtHint">  </div>
-                  <div class = "form-group" >
+                  
+                  <div class = "form-group col-md-12" id="txtHint">
+                 
+                  </div>
+                  <div class = "form-group col-md-12" >
                        Secondary Canal : &nbsp; 
-                          <select id="secondary" name="" class="form-select move-on-hover" required>
+                          <select id="secondary" name="" class="form-select move-on-hover" >
                               <option value="">Select Main Command-area first</option>
                           </select>
                   </div>
 
-                  <div class = "form-group" >
+                  <div class = "form-group col-md-12" >
                       Tertiary Canal : &nbsp; 
-                          <select id="tertiary" name="" class="form-select move-on-hover" required>
+                          <select id="tertiary" name="" class="form-select move-on-hover" >
                              <option value="">Select Secondary-canal first</option>
                           </select>
                   </div>
 
-                  <div class = "form-group" >
+                  <div class = "form-group col-md-12" >
                      Quaternary Canal: &nbsp; 
-                          <select id="quaternary" name="" class="form-select move-on-hover" required>
+                          <select id="quaternary" name="" class="form-select move-on-hover" >
                              <option value="">Select Tertiary-canal first</option>
                           </select>
                   </div>
 
 
-                  <div class = "form-group">
+                 </div>
+  <div class="column column-2 col-md-12">
+                   <div class = "form-group col-md-12 ">
                       Select the Crop Name  : &nbsp; 
-                          <select  name="cr_id" class="form-select move-on-hover" required>
+                          <select  name="cr_id" class="form-select move-on-hover" >
                               <option value="">Select...</option>
                                     <?php 
                                         $sql = "SELECT * FROM wh_001_crops_main  ORDER BY cr_id";
@@ -216,42 +238,11 @@ $(document).ready(function(){
                   </div>
 
 
-                  <div class = "form-group input-group  move-on-hover">
-                      <input type="text" name="ucp_area"    minlength="2" maxlength="30"     placeholder="Total Area to be irrigated"   required  class="form-control \" >
-                      <span class="input-group-text">
+                  <div class = "form-group col-md-12 input-group  move-on-hover">
+                      <input type="text" name="ucp_area"    minlength="2" maxlength="30"     placeholder="Total Area to be irrigated"     class="form-control \" >
+                      <span class="input-group-text" style = " padding:0; ">
 
-                        <select name="u_area_unit" class="form-select move-on-hover" style = "width: 150px;"  >
-                            <option value="Hectare">   Hectare    </option>
-                            <option value="Acre">      Acre       </option>
-                            <option value="Sqr KM ">   Sqr KM     </option>
-                            <option value="Sqr yard">  Sqr yard   </option>                              
-                        </select>
-  
-                      </span>
-                  </div>
-
-                  <div class = "form-group">
-                      Select the Crop Name  : &nbsp; 
-                          <select  name="cr_id" class="form-select move-on-hover" required>
-                              <option value="">Select...</option>
-                                    <?php 
-                                        $sql = "SELECT * FROM wh_001_crops_main  ORDER BY cr_id";
-                                        $result = mysqli_query($connection , $sql);		
-                                      while ($row = mysqli_fetch_array($result)){
-                                        echo "<option value=".$row['cr_id'].">".$row['cr_name']."</option>";                      
-                                            
-                        
-                                      }
-                                    ?>       
-                          </select>
-                  </div>
-
-
-                  <div class = "form-group input-group  move-on-hover">
-                      <input type="text" name="ucp_area"    minlength="2" maxlength="30"     placeholder="Total Area to be irrigated"   required  class="form-control \" >
-                      <span class="input-group-text">
-
-                        <select name="u_area_unit" class="form-select move-on-hover" style = "width: 150px;"  >
+                        <select name="u_area_unit" class="form-select move-on-hover text-xs" style = "width: 150px;"  >
                             <option value="Hectare">   Hectare    </option>
                             <option value="Acre">      Acre       </option>
                             <option value="Sqr KM ">   Sqr KM     </option>
@@ -262,14 +253,55 @@ $(document).ready(function(){
                   </div>
 
 
-                  
+                  <div class="row col-md-12 pt-5  justify-content-center" >
+          <button class="btn btn-success text-dark btn-sm text-center " style= "width: 70%"type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+            + Add second crop
+          </button>
+                                    </div>
+            <div class="collapse " id="collapseExample">
+                              <div class = "form-group col-md-12">
+                                  Select the Crop Name  : &nbsp; 
+                                      <select  name="cr_id" class="form-select move-on-hover" >
+                                          <option value="">Select...</option>
+                                                <?php 
+                                                    $sql = "SELECT * FROM wh_001_crops_main  ORDER BY cr_id";
+                                                    $result = mysqli_query($connection , $sql);		
+                                                  while ($row = mysqli_fetch_array($result)){
+                                                    echo "<option value=".$row['cr_id'].">".$row['cr_name']."</option>";                      
+                                                        
+                                    
+                                                  }
+                                                ?>       
+                                      </select>
+                              </div>
 
-                   <button type="submit" name="submit" value="submit" class="btn bg-gradient-dark btn-lg  m-auto">Save</button>
 
+
+                              <div class = "form-group col-md-12 input-group  move-on-hover">
+                                  <input type="text" name="ucp_area"    minlength="2" maxlength="30"     placeholder="Total Area to be irrigated"     class="form-control \" >
+                                  <span class="input-group-text" style = " padding:0; ">
+
+                                    <select name="u_area_unit" class="form-select move-on-hover text-xs" style = "width: 150px; "  >
+                                        <option value="Hectare">   Hectare    </option>
+                                        <option value="Acre">      Acre       </option>
+                                        <option value="Sqr KM ">   Sqr KM     </option>
+                                        <option value="Sqr yard">  Sqr yard   </option>                              
+                                    </select>
               
+                                  </span>
+                              </div>
+            </div>
+        
+        </div>
+        
+      
+  
+        <hr style ="width: 100%;" class=" mb-3"/>
+
+        <button type="submit" style ="width: 50%; float:right;    bottom: 0px;" name="submit" value="submit" class="btn bg-gradient-dark  m-auto">Save</button>
                 </form>
 
-
+                </div>   
               </div>
             </div>
           </div>

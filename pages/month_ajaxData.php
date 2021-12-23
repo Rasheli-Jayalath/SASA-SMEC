@@ -1,6 +1,6 @@
   <!--     making the connection with DB     -->
   <?php require_once('../Config/connection.php'); ?>
-  <?php  include '../Classes/check_dedical_num.php';  ?>
+  <?php  include '../Classes/check_decadal_num.php';  ?>
 
 <?php 
 
@@ -37,9 +37,9 @@ if(!empty($_POST["start_month_id"])){
 
         echo '<div class="col-md-4" >'; 
         echo '<div class="form-group text-sm">'; 
-        $obj = new check_dedical_num();
-        $dedical_num = $obj->_check( $row['ts_period'] ) ; 
-        echo '<b>'.$a[$month_id] .'</b> ('.$row['ts_period'].')  &nbsp; <b>Dedical-'.$dedical_num .'</b>'; 
+        $obj = new check_decadal_num();
+        $decadal_num = $obj->_check( $row['ts_period'] ) ; 
+        echo '<b>'.$a[$month_id] .'</b> ('.$row['ts_period'].')  &nbsp; <b>Decadal-'.$decadal_num .'</b>'; 
         echo '<div style = " display: flex;">'; 
         echo '<input class="form-control" type="number" value="" id="" min="0" placeholder="Enter value"" name="sch_wat_value'.$i.'" style="width: 155%; padding-right: 0; ">   &nbsp; '; 
         echo '<input class="form-control" type="number" value="" id="" min="0" max="100"placeholder="Percentage" name="percent_value'.$i.'" style="width: 89%; border-top-right-radius: 0; border-bottom-right-radius: 0; padding-left: 5px; padding-right: 0; "> '; 
