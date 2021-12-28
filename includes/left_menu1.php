@@ -141,7 +141,7 @@ $nc_code=NC_CODE;
 </li>
 
 <li class="nav-item">
-  <a class="nav-link  " href="form_user_and_canal.php" style = " text-indent: -0.3em;"  title=" Manage User Crops ">
+  <a class="nav-link  " href="form_user_and_crops.php" style = " text-indent: -0.3em;"  title=" Manage User Crops ">
      <i class="fas fa-circle nav-icon "></i>
     <span class="nav-link-text ms-1">Manage User and Crops </span>
   </a>

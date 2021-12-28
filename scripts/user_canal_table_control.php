@@ -10,7 +10,7 @@ if(isset($_GET['q'])){
     $sql = "SELECT * FROM wh_000_network_canals WHERE ca_id = '".$q."'";
     $result = mysqli_query($connection, $sql) or die( mysqli_error($connection));
     $num_of_raws = mysqli_num_rows($result);
-    if($num_of_raws>1 AND $q!=0 ){
+    if($num_of_raws>0 AND $q!=0 ){
 
         echo "    <div  class = \"form-group\" >";
         echo "   Select the Canal : &nbsp; ";

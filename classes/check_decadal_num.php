@@ -1,6 +1,6 @@
 <?php 
 
-  class check_dedical_num{
+  class check_decadal_num{
 	  
 	  function _check($checking_value ){
 		  if($checking_value == '01-10') {
