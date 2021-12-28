@@ -55,7 +55,7 @@ if(!empty($_POST["ca_id"])){
      
 
     if($result->num_rows > 0){ 
-        echo '<option value="">Select Quaternary Canal </option>'; 
+        echo '<option >Select Quaternary Canal </option>'; 
         while($row = $result->fetch_assoc()){  
             echo '<option value="'.$row['nc_id'].'">'.$row['nc_name'].'</option>'; 
         } 
