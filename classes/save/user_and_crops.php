@@ -9,7 +9,7 @@
       if (isset($_POST['submit'])  ) {   //clicked save button
         $errors = array();
         $uc_id = '';
-        $nc_id = 0;
+        $nc_id ;
         $year = 2020;
         
           $u_id         = $_POST['u_id'] ;
@@ -23,19 +23,19 @@
         }
     
        // NC_ID
-        if       (isset($_POST['quaternary'])){
+        if       (isset($_POST['quaternary']) && $_POST['quaternary'] >0 ){
           $nc_id =      $_POST['quaternary'] ;
 
-        }else if( isset($_POST['tertiary'])){
+        }else if( isset($_POST['tertiary'])   && $_POST['tertiary']   >0 ){
           $nc_id =      $_POST['tertiary'] ;
 
-        }else if( isset($_POST['secondary'])){
+        }else if( isset($_POST['secondary'])  && $_POST['secondary']  >0 ){
           $nc_id =      $_POST['secondary'] ; 
+        
         }
 
-
         $message = '';
-    
+     
         $sql = "SELECT * FROM wh_002_users_canal WHERE nc_id = '".$nc_id."' AND u_id = $u_id ";
         $result = mysqli_query($connection, $sql) or die( mysqli_error($connection));
         $num_of_raws = mysqli_num_rows($result);
@@ -50,7 +50,7 @@
             $errors[] = 'Failed1 to add the new record';
           } 
         }else{
-          $nc_id = 202020;
+    
           $query = "INSERT INTO wh_002_users_canal ( ";
           $query .= "yr_name,     u_id,      nc_id,     uc_area,       uc_area_unit";
           $query .= ") VALUES (";

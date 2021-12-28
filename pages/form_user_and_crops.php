@@ -162,7 +162,7 @@ $(document).ready(function(){
                           <select  name="u_id" class="form-select move-on-hover" required>
                               <option value="">Select...</option>
                                     <?php 
-                                        $sql = "SELECT * FROM wh_002_users  ORDER BY u_id";
+                                        $sql = "SELECT * FROM wh_002_users WHERE yr_name = $default_year  ORDER BY u_id";
                                         $result = mysqli_query($connection , $sql);		
                                       while ($row = mysqli_fetch_array($result)){
                                         echo "<option value=".$row['u_id'].">".$row['u_name']."</option>";                      
@@ -223,7 +223,7 @@ $(document).ready(function(){
                           <select  name="cr_id" class="form-select move-on-hover" required>
                               <option value="">Select...</option>
                                     <?php 
-                                        $sql = "SELECT * FROM wh_001_crops_main  ORDER BY cr_id";
+                                        $sql = "SELECT * FROM wh_001_crops_main  WHERE yr_name = $default_year  ORDER BY cr_id";
                                         $result = mysqli_query($connection , $sql);		
                                       while ($row = mysqli_fetch_array($result)){
                                         echo "<option value=".$row['cr_id'].">".$row['cr_name']."</option>";                      
@@ -262,7 +262,7 @@ $(document).ready(function(){
                                       <select  name="cr_id_second" class="form-select move-on-hover" >
                                           <option value="">Select...</option>
                                                 <?php 
-                                                    $sql = "SELECT * FROM wh_001_crops_main  ORDER BY cr_id";
+                                                    $sql = "SELECT * FROM wh_001_crops_main WHERE yr_name = $default_year  ORDER BY cr_id";
                                                     $result = mysqli_query($connection , $sql);		
                                                   while ($row = mysqli_fetch_array($result)){
                                                     echo "<option value=".$row['cr_id'].">".$row['cr_name']."</option>";                      
