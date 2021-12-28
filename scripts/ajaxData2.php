@@ -12,11 +12,11 @@ if(!empty($_POST["ca_id"])){
         // Generate HTML of state options list 
         if($result->num_rows > 0 && $q>0){ 
             echo 'Select sub componant : &nbsp;' ;
-            echo '<select  name="" class="form-select move-on-hover" >';
+            echo '<select  name="sub_comp" class="form-select move-on-hover" >';
             
             echo '<option value="">Select Sub component </option>'; 
             while($row = $result->fetch_assoc()){  
-                echo " <option value=".$row['ca_code'].">".$row['ca_name']."</option>";
+                echo " <option value=".$row['ca_id'].">".$row['ca_name']."</option>";
             } 
             echo '</select>' ;
         }

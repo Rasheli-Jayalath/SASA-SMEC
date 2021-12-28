@@ -24,7 +24,7 @@
   <!-- CSS Files -->
   <link id="pagestyle" href="../assets/css/soft-ui-dashboard.css?v=1.0.2" rel="stylesheet" />  
   <!-- CSS scrollbar style -->
-  <link id="pagestyle" href="../assets/css/scrollbarStyle.css" rel="stylesheet" />
+  <link  href="../assets/css/scrollbarStyle.css" rel="stylesheet" />
   
  <!-- sidebar  -->
  <script src="../scripts/mainpages.js"></script>
@@ -148,34 +148,32 @@ $(document).ready(function(){
         }
 
       ?>			
-  <div class="container-fluid py-4 " >        
-      <div class="col-md-11 m-auto py-4  bg-gradient-secondary" style="height:650px;">
+  <div class="container-fluid py-3 " >        
+      <div class="col-md-11 m-auto py-4  bg-gradient-secondary" style="height:610px;  background-image: linear-gradient(rgba(98, 117, 148,0.9), rgba(168, 184, 216,0.9)), url('../assets/img/home.jpg');">
            <div class="col-md-11 m-auto py-4 border border-secondary rounded " style="height:102%;" >
-              <div class="col-md-11 m-auto py-4  ">
+              <div class="col-md-11 m-auto   ">
 
-                <form action="../Classes/save/user_crop_table_save.php"  method="post" class="text-white" enctype="multipart/form-data" autocomplete="off">
-
+                <form action="../Classes/save/user_and_crops.php"  method="post" class="text-white" enctype="multipart/form-data" autocomplete="off">
+                <h5 class="text-center text-gradient  text-dark text-uppercase opacity-9 font-weight-bold pb-2 mt-n2" >Manage User and Crops for <?php echo $default_year; ?>  </h5>
                 <div class="column column-1 col-md-12 " >
 
                 <div class = "form-group col-md-12">
                       Select the Users Name  : &nbsp; 
-                          <select  name="uc_id" class="form-select move-on-hover" >
+                          <select  name="u_id" class="form-select move-on-hover" required>
                               <option value="">Select...</option>
                                     <?php 
                                         $sql = "SELECT * FROM wh_002_users  ORDER BY u_id";
                                         $result = mysqli_query($connection , $sql);		
                                       while ($row = mysqli_fetch_array($result)){
                                         echo "<option value=".$row['u_id'].">".$row['u_name']."</option>";                      
-                                            
-                        
                                       }
                                     ?>       
                           </select>
-                  </div>
+                </div>
 
                   <div class = "form-group col-md-12" >
                      Main Command Area : &nbsp; 
-                          <select id="ca_main" name="" class="form-select move-on-hover"  onchange="yesnoCheck(this.value);" >
+                          <select id="ca_main" name="ca_id" class="form-select move-on-hover"  onchange="yesnoCheck(this.value);" required>
                           <option value="">Select Main Command Area</option>
                               <?php 
                                  // Fetch all the ca_main data 
@@ -199,31 +197,30 @@ $(document).ready(function(){
                   </div>
                   <div class = "form-group col-md-12" >
                        Secondary Canal : &nbsp; 
-                          <select id="secondary" name="" class="form-select move-on-hover" >
+                          <select id="secondary" name="secondary" class="form-select move-on-hover" required>
                               <option value="">Select Main Command-area first</option>
                           </select>
                   </div>
 
                   <div class = "form-group col-md-12" >
                       Tertiary Canal : &nbsp; 
-                          <select id="tertiary" name="" class="form-select move-on-hover" >
+                          <select id="tertiary" name="tertiary" class="form-select move-on-hover" >
                              <option value="">Select Secondary-canal first</option>
                           </select>
                   </div>
 
                   <div class = "form-group col-md-12" >
                      Quaternary Canal: &nbsp; 
-                          <select id="quaternary" name="" class="form-select move-on-hover" >
+                          <select id="quaternary" name="quaternary" class="form-select move-on-hover" >
                              <option value="">Select Tertiary-canal first</option>
                           </select>
                   </div>
-
 
                  </div>
   <div class="column column-2 col-md-12">
                    <div class = "form-group col-md-12 ">
                       Select the Crop Name  : &nbsp; 
-                          <select  name="cr_id" class="form-select move-on-hover" >
+                          <select  name="cr_id" class="form-select move-on-hover" required>
                               <option value="">Select...</option>
                                     <?php 
                                         $sql = "SELECT * FROM wh_001_crops_main  ORDER BY cr_id";
@@ -239,10 +236,10 @@ $(document).ready(function(){
 
 
                   <div class = "form-group col-md-12 input-group  move-on-hover">
-                      <input type="text" name="ucp_area"    minlength="2" maxlength="30"     placeholder="Total Area to be irrigated"     class="form-control \" >
+                      <input type="text" name="uc_area"    minlength="2" maxlength="30"     placeholder="Total Area to be irrigated"     class="form-control \" >
                       <span class="input-group-text" style = " padding:0; ">
 
-                        <select name="u_area_unit" class="form-select move-on-hover text-xs" style = "width: 150px;"  >
+                        <select name="uc_area_unit" class="form-select move-on-hover text-xs" style = "width: 150px;"  required>
                             <option value="Hectare">   Hectare    </option>
                             <option value="Acre">      Acre       </option>
                             <option value="Sqr KM ">   Sqr KM     </option>
@@ -253,15 +250,16 @@ $(document).ready(function(){
                   </div>
 
 
-                  <div class="row col-md-12 pt-5  justify-content-center" >
-          <button class="btn btn-success text-dark btn-sm text-center " style= "width: 70%"type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-            + Add second crop
+                  <div class="row col-md-12 pt-5  justify-content-center"  >
+          <button class="btn btn-success text-dark text-center " style= "width: 70%"type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+          <i class="fas fa-plus"></i> Add second crop
           </button>
                                     </div>
+             <div style="height: 220px;"> 
             <div class="collapse " id="collapseExample">
                               <div class = "form-group col-md-12">
                                   Select the Crop Name  : &nbsp; 
-                                      <select  name="cr_id" class="form-select move-on-hover" >
+                                      <select  name="cr_id_second" class="form-select move-on-hover" >
                                           <option value="">Select...</option>
                                                 <?php 
                                                     $sql = "SELECT * FROM wh_001_crops_main  ORDER BY cr_id";
@@ -273,15 +271,15 @@ $(document).ready(function(){
                                                   }
                                                 ?>       
                                       </select>
-                              </div>
+                              </div>  
 
 
 
                               <div class = "form-group col-md-12 input-group  move-on-hover">
-                                  <input type="text" name="ucp_area"    minlength="2" maxlength="30"     placeholder="Total Area to be irrigated"     class="form-control \" >
+                                  <input type="text" name="uc_area_second"    minlength="2" maxlength="30"     placeholder="Total Area to be irrigated"     class="form-control \" >
                                   <span class="input-group-text" style = " padding:0; ">
 
-                                    <select name="u_area_unit" class="form-select move-on-hover text-xs" style = "width: 150px; "  >
+                                    <select name="uc_area_unit_second" class="form-select move-on-hover text-xs" style = "width: 150px; "  >
                                         <option value="Hectare">   Hectare    </option>
                                         <option value="Acre">      Acre       </option>
                                         <option value="Sqr KM ">   Sqr KM     </option>
@@ -291,27 +289,26 @@ $(document).ready(function(){
                                   </span>
                               </div>
             </div>
-        
+            </div>  
+            <button type="submit" style ="width: 50%; float:right; " name="submit" value="submit" class="btn bg-gradient-dark  ">Save</button>
+ 
+ 
         </div>
         
-      
-  
-        <hr style ="width: 100%;" class=" mb-3"/>
 
-        <button type="submit" style ="width: 50%; float:right;    bottom: 0px;" name="submit" value="submit" class="btn bg-gradient-dark  m-auto">Save</button>
-                </form>
+     </form>
 
                 </div>   
               </div>
             </div>
           </div>
-          
+                                               
           <!-- End content Editing -->
 
        <!-- footer -->
        <?php include("../includes/footer.php");?>
         
-    </div>
+  
   </main>
 
   <!--   Core JS Files   -->

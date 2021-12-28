@@ -193,9 +193,13 @@ include_once("../config/config.php");
       ?>
 
 			
-    <div class="container-fluid py-2 mt-4"> 
+    <div class="container-fluid mt-2"> 
+    <div class="text-center mb-2" >
+             <span class="text-gradient  text-dark text-uppercase opacity-9 font-weight-bold" >Manage Crops </span>
+          </div>
        <div class="row">
-          <div class="col-8">
+          <div class="col-8 ">
+
                 <div class="card mb-4">   
                       <div class="card-body px-0 pt-0 pb-2">    
                             <div class="table-responsive p-0">   
@@ -214,7 +218,7 @@ include_once("../config/config.php");
                 </div>  <!-- card mb-4 -->
              </div>    <!--col-8 -->     
 
-              <div class="col-4"  >
+              <div class="col-4 mt-5"  >
                  <button type="button"  class="btn bg-gradient-success w-50 " onclick="myFunction('0')" > <i class="fas fa-plus text-white pe-2 " aria-hidden="true" ></i>Add new </button>
                 <div  id="display_form"  >
                 </div> 
