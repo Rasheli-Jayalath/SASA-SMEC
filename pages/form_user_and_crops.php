@@ -162,7 +162,7 @@ $(document).ready(function(){
                           <select  name="u_id" class="form-select move-on-hover" required>
                               <option value="">Select...</option>
                                     <?php 
-                                        $sql = "SELECT * FROM wh_002_users WHERE yr_name = $default_year  ORDER BY u_id";
+                                        $sql = "SELECT * FROM wh_002_users WHERE yr_name = $default_year  ORDER BY `u_name` ASC";
                                         $result = mysqli_query($connection , $sql);		
                                       while ($row = mysqli_fetch_array($result)){
                                         echo "<option value=".$row['u_id'].">".$row['u_name']."</option>";                      
@@ -236,7 +236,7 @@ $(document).ready(function(){
 
 
                   <div class = "form-group col-md-12 input-group  move-on-hover">
-                      <input type="text" name="uc_area"    minlength="2" maxlength="30"     placeholder="Total Area to be irrigated"     class="form-control \" >
+                      <input type="number" name="uc_area"   min="0"  minlength="1" maxlength="10"    placeholder="Total Area to be irrigated"     class="form-control \" >
                       <span class="input-group-text" style = " padding:0; ">
 
                         <select name="uc_area_unit" class="form-select move-on-hover text-xs" style = "width: 150px;"  required>
@@ -276,7 +276,7 @@ $(document).ready(function(){
 
 
                               <div class = "form-group col-md-12 input-group  move-on-hover">
-                                  <input type="text" name="uc_area_second"    minlength="2" maxlength="30"     placeholder="Total Area to be irrigated"     class="form-control \" >
+                                  <input type="number" name="uc_area_second"   min="0"  minlength="1" maxlength="10"     placeholder="Total Area to be irrigated"     class="form-control \" >
                                   <span class="input-group-text" style = " padding:0; ">
 
                                     <select name="uc_area_unit_second" class="form-select move-on-hover text-xs" style = "width: 150px; "  >
