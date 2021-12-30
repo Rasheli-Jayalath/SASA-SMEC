@@ -87,7 +87,7 @@
 	$dbnmame=DBNAME;
 	$con = new PDO("mysql:host=$host;dbname=$dbnmame;charset=UTF8", DBUSER, DBPASSWD);
 
-	session_start();
+
 	$_SESSION["dbConnection"] = $con;
 	
 ?>

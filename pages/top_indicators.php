@@ -71,7 +71,7 @@
                     ?>
 
                     
-                    <span class="text-success text-sm font-weight-bolder">m<sup>3</sup>/ha</span>
+                    <span class="text-success text-sm font-weight-bolder">m<sup>3</sup></span>
                       <?php /*?><span class="text-success text-sm font-weight-bolder">+3%</span><?php */?>
                     </h5>
                   </div>
