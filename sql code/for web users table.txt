@@ -1,0 +1,19 @@
+CREATE TABLE wh_004_web_users (
+wu_id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+wu_uname VARCHAR(30) NOT NULL,
+wu_pw VARCHAR(30) NOT NULL,
+wu_name VARCHAR(30),
+email VARCHAR(30),
+yr_name INT(4),
+is_deleted INT(1) NOT NULL DEFAULT 0,
+last_login datetime NOT NULL,
+recorded_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+
+
+INSERT INTO `wh_004_web_users` (`wu_id`, `wu_name`, `wu_uname`, `wu_pw`, `email`, `yr_name`,  `recorded_date`) VALUES (NULL, 'Super Admin Name', 'super_admin', 'admin1234', 'admin@gmail.com', '2020', current_timestamp());
+
+
+INSERT INTO `wh_004_web_users` ( `wu_uname`, `wu_pw`) VALUES ( 'sam2020', 'sam1234');
+
+

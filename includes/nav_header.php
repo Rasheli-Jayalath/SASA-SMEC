@@ -6,7 +6,7 @@
             <button  id="second" style="display:none;"> -</button>
             <button onclick="changeme(this.id);" class="button-rotate ml-2 d-none d-xl-block" > <i class="fa fa-bars" aria-hidden="true"></i></button>
             <div class=" d-none d-xl-block " >
-              <span class="text-dark font-weight-bold " style=""><strong>SMEC Agriculture Water Management System  </strong></span>
+              <span class="text-dark font-weight-bold " style=""><strong>SMEC Irrigation Water Use and Distribution Planning Tool (SIWUDPT)  </strong></span>
             </div> 
          </div>         
         </nav>
@@ -44,15 +44,11 @@
               </a>
             </li>
             <li class="nav-item px-3 d-flex align-items-center">
-              <a href="javascript:;" class="nav-link text-body p-0">
-                <i class="fa fa-cog fixed-plugin-button-nav cursor-pointer"></i>
+              <a href="javascript:;" class="nav-link text-body p-0" title="Sign-Out">
+                <i class="fa fa-sign-out fixed-plugin-button-nav cursor-pointer"></i>
               </a>
             </li>
-            <li class="nav-item dropdown pe-2 d-flex align-items-center">
-              <a href="javascript:;" class="nav-link text-body p-0" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-                <i class="fa fa-bell cursor-pointer"></i>
-              </a>
-            </li>
+         
           </ul> 
         </div>
       </div>
