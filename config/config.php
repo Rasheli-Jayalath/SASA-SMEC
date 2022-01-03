@@ -1,8 +1,8 @@
 <?php
-	ob_start();
-	session_cache_expire(30);
-	define('PNAME',"SAS");
-	session_name(PNAME);
+	//ob_start();
+	//session_cache_expire(30);
+	//define('PNAME',"SAS");
+	//session_name(PNAME);
 	session_start();
 	error_reporting(E_ALL & ~E_NOTICE);
 	$dbCfg = array();

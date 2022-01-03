@@ -1,3 +1,34 @@
+<style>
+
+table{ text-align: center; }
+.table-container{ 
+  overflow: scroll;
+}
+table th, table td {
+  white-space: nowrap;
+
+
+}
+table tr th:first-child, table td:first-child{
+  position: sticky;
+  left: 0;
+  z-index: 10;
+  background: rgb(240, 240, 255);
+  opacity: 1;
+
+}
+table tr th:first-child{
+  z-index: 11;
+}
+table tr th{
+  position: sticky;
+  top: 0;
+  z-index: 9;
+}
+
+</style>
+
+
 <?php 
 $objTimescaleT = new Timescale();
 $objCropsS = new Crops();	
@@ -15,15 +46,15 @@ $end_period=$reports_rows["report_end_id"];
         <div class="col-12">
           <div class="card mb-4">
             <div class="card-header pb-0">
-              <h6><?php //echo $report_title." ".$default_year; 
-			  echo "Proposed Irrigation Schedule (m<sup>3</sup>/ha) for ".$default_year; ?></h6>
+              <h6 class="text-center text-gradient  text-dark   opacity-9 font-weight-bold "><?php //echo $report_title." ".$default_year; 
+			  echo "Proposed Irrigation Schedule (m<sup class=\" text-center text-gradient  text-dark \">3</sup>/ha) for ".$default_year; ?></h6>
             </div>
             <div class="card-body px-0 pt-0 pb-2">
               <div class="table-responsive p-0">
                 <table class="table align-items-center mb-0" > 
                   <thead>
                     <tr>
-                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Crop</th>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder ">Crop</th>
                        <?PHP 
    $objTimescale->setProperty("yr_name", $default_year);
   $objTimescale->setProperty("start",$start_period);
@@ -44,7 +75,7 @@ $end_period=$reports_rows["report_end_id"];
     Total
     </th>
      <th>
-    Norm (m<sub>3</sub>/ha)
+    Norm 
     </th><th>
     Difference
     </th>
@@ -75,6 +106,8 @@ $end_period=$reports_rows["report_end_id"];
       <th>
       </th>
       <th>
+      <span class="text-xs text-muted text-lowercase font-italic " style="padding-top: -5px;"> (m<sub>3</sub>/ha) </span> <br>
+
       </th>
       <th>
       </th>
