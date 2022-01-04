@@ -9,8 +9,6 @@
 		$errors = array();
 
 
-
-
 			// save username and password into variables
 			$username 		= mysqli_real_escape_string($connection, $_POST['username']);
 			$password 	  = mysqli_real_escape_string($connection, $_POST['password']);
@@ -33,7 +31,7 @@
 				$result_set = mysqli_query($connection, $query);
 
 				//verify_query($result_set);
-					// redirect to index.php
+					// redirect to index.php 					header('Location: ../Classes/core/Login.php');
 					header('Location: ../index.php');
 				} else {
 					// user name and password invalid
@@ -199,4 +197,3 @@ if(isset($_GET['msg']) AND isset($_GET['status']) ){
 </body>
 
 </html>
-

@@ -2,6 +2,7 @@
 
 include_once("../config/config.php");
   $dbconn =       new Database();
+  $objLogin =     new Login();
   $objCmdArea =   new CommandArea();
   $canalNet =     new CanalNetworks();
   $objUser =      new Users();
@@ -12,6 +13,9 @@ include_once("../config/config.php");
   $objReports =   new Reports();
 
 ?>
+  <?php if(empty($objLogin -> get_name() ))
+  header("location:signin.php"); 
+  ?> 
 <?php 
 if(isset($_REQUEST['yr_name'])&& $_REQUEST['yr_name']!="")
 {

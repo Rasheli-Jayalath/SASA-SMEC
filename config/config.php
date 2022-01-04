@@ -1,7 +1,7 @@
 <?php
-	//ob_start();
-	//session_cache_expire(30);
-	//define('PNAME',"SAS");
+	ob_start();
+	session_cache_expire(30);
+	define('PNAME',"SAS");
 	//session_name(PNAME);
 	session_start();
 	error_reporting(E_ALL & ~E_NOTICE);
@@ -75,6 +75,7 @@
 	require_once(SITE_PATH . 'classes/core/'. 'CanalUsers'. '.php');
 	require_once(SITE_PATH . 'classes/core/'. 'UsersCrops'. '.php');
 	require_once(SITE_PATH . 'classes/core/'. 'Validate'. '.php');
+	require_once(SITE_PATH . 'classes/core/'. 'Login'. '.php');
 	
 	/*********** Define the values *********/
 	define("HOST", $dbCfg['host']);
@@ -89,5 +90,8 @@
 
 
 	$_SESSION["dbConnection"] = $con;
+
+	//$_SESSION["username"] ;
+
 	
 ?>
