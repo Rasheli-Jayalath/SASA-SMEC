@@ -1,5 +1,5 @@
 <?php 
-
+	//session_start();
 include_once("config/config.php");
   $dbconn =       new Database();
   $objCmdArea =   new CommandArea();
@@ -12,6 +12,8 @@ include_once("config/config.php");
   $objReports =   new Reports();
 
 ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 

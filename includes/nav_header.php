@@ -30,7 +30,8 @@
           </div>
           <ul class="navbar-nav  justify-content-end mt-n4">
             <li class="nav-item d-flex align-items-center">
-              <a href="javascript:;" class="nav-link text-body font-weight-bold px-0 " title="Super Admin">
+            <a href="javascript:;" class="nav-link text-body font-weight-bold px-0 " title="<?php echo $objLogin -> get_name() ?>">
+              <span class =" text-xs"><?php echo $objLogin -> get_name() ?>  </span>
                 <i class="fa fa-user me-sm-1"></i>
               </a>
             </li>
@@ -44,7 +45,9 @@
               </a>
             </li>
             <li class="nav-item px-3 d-flex align-items-center">
-              <a href="javascript:;" class="nav-link text-body p-0" title="Sign-Out">
+            <?php
+            echo "<a href=\"https://localhost/SASA-Final2/pages/signout.php\" class=\"nav-link text-body p-0\" title=\"Sign-Out\">" ;
+            ?>
                 <i class="fa fa-sign-out fixed-plugin-button-nav cursor-pointer"></i>
               </a>
             </li>
