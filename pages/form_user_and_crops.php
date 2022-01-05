@@ -124,31 +124,11 @@ $(document).ready(function(){
     <!-- Navbar -->
     <?php include("../includes/nav_header.php");?>
     <!-- End Navbar -->
-      <!------------------- Start content Editing ------------------>
-
-
-
-		
-      <?php
-
-        if(isset($_GET['msg']) AND isset($_GET['status']) ){  
-
-
-          echo "<div class=\"alert alert-warning alert-dismissible fade show\" role=\"aler\">";
-          echo "<span class=\"alert-icon\"><i class=\"ni ni-bell-55\"></i></span>";
-          echo "<span class=\"alert-text\"><strong>";
-          echo " </strong> ";
-          echo $_GET['msg']; 
-          echo "</span>";
-          echo "<button type=\"button\" class=\"btn-close\" data-bs-dismiss=\"alert\" aria-label=\"Close\">";
-          echo " <span aria-hidden=\"true\">&times;</span>";
-          echo "</button>";
-          echo "</div>";
-
-        }
-
-      ?>			
-  <div class="container-fluid py-3 " >        
+	
+  <div class="container-fluid py-3 " >    
+            <!-- alert -->
+            <?php include("../includes/success_message.php");?>
+                
       <div class="col-md-11 m-auto py-4  bg-gradient-secondary" style="height:610px;  background-image: linear-gradient(rgba(98, 117, 148,0.9), rgba(168, 184, 216,0.9)), url('../assets/img/home.jpg');">
            <div class="col-md-11 m-auto py-4 border border-secondary rounded " style="height:102%;" >
               <div class="col-md-11 m-auto   ">

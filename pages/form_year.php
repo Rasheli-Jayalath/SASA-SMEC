@@ -142,7 +142,7 @@ include_once("../config/config.php");
 
 
   <div class="container-fluid py-4 ">        
-      <div class="col-md-6 m-auto py-4  bg-gradient-secondary">
+      <div class="col-md-6 m-auto py-4  bg-gradient-secondary" style=" background-image: linear-gradient(rgba(98, 117, 148,0.9), rgba(168, 184, 216,0.9)), url('../assets/img/home.jpg');" >
            <div class="col-md-8 m-auto py-4 border border-secondary rounded ">
               <div class="col-md-8 m-auto py-4  ">            
 

@@ -130,7 +130,7 @@ $nc_code=NC_CODE;
   </a>
 </li>
 
-<li class="nav-item">
+<!-- <li class="nav-item">
   <a class="nav-link  " href="table_user_canal.php" style = " text-indent: -0.3em;" title=" Manage User Canal ">
      <i class="fas fa-circle nav-icon "></i>
     <span class="nav-link-text ms-1"> Manage User Canal </span>
@@ -142,7 +142,7 @@ $nc_code=NC_CODE;
      <i class="fas fa-circle nav-icon "></i>
     <span class="nav-link-text ms-1">Manage User Crops </span>
   </a>
-</li>
+</li> -->
 
 <li class="nav-item">
   <a class="nav-link  " href="form_user_and_crops.php" style = " text-indent: -0.3em;"  title=" Manage User Crops ">
@@ -151,9 +151,16 @@ $nc_code=NC_CODE;
   </a>
 </li>
 <li class="nav-item">
-  <a class="nav-link  " href="form_tscale_irrigation.php" style = " text-indent: -0.3em;"  title=" Proposed irrigation schedule period">
+  <a class="nav-link  " href="form_tscale_irri_sch.php" style = " text-indent: -0.3em;"  title="Manage Proposed irrigation schedule period">
      <i class="fas fa-circle nav-icon "></i>
-    <span class="nav-link-text ms-1">Proposed irrigation schedule..</span>
+    <span class="nav-link-text ms-1">Manage Proposed irrig sch</span>
+  </a>
+</li>
+
+<li class="nav-item">
+  <a class="nav-link  " href="form_ts_irri_norms.php" style = " text-indent: -0.3em;"  title="Manage Irrigation Norms">
+     <i class="fas fa-circle nav-icon "></i>
+    <span class="nav-link-text ms-1">Manage Irrigation Norms</span>
   </a>
 </li>
 </ul>
