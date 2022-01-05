@@ -87,24 +87,8 @@ $(document).ready(function(){
 ?>
 
 		      
-      <?php
-
-        if(isset($_GET['msg']) AND isset($_GET['status']) ){  
-
-
-          echo "<div class=\"alert alert-warning alert-dismissible fade show\" role=\"aler\">";
-          echo "<span class=\"alert-icon\"><i class=\"ni ni-bell-55\"></i></span>";
-          echo "<span class=\"alert-text\"><strong>";
-          echo " </strong> ";
-          echo $_GET['msg']; 
-          echo "</span>";
-          echo "<button type=\"button\" class=\"btn-close\" data-bs-dismiss=\"alert\" aria-label=\"Close\">";
-          echo " <span aria-hidden=\"true\">&times;</span>";
-          echo "</button>";
-          echo "</div>";
-
-        }
-      ?>			
+        <!-- alert -->
+        <?php include("../../includes/success_message.php");?>		
 			
     <div class=" py-4 " id = "py-4">    
         <button id="hide_iframe" type="button"  class=" float-end btn bg-gradient-dark btn-sm me-1 btn-lg" aria-label="Close"> Close <i class="far fa-times-circle "></i> </button>              

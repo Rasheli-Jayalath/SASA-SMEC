@@ -233,7 +233,9 @@ $irrigationPeriod=0;
 				{ 
 					echo "<th colspan=\"2\" style=\"text-align:center;\" >". (($q==0)? "Pre-Irrigation" : "Period-".$q). "</th>";
 					$q++;
-				} ?>
+				} 
+				
+				?><th colspan="2" style="text-align:center; vertical-align:middle" >Total</th>
             </tr>
             <tr style="color:#fff">
 				<?php 
@@ -243,7 +245,11 @@ $irrigationPeriod=0;
 					echo "<th style=\"text-align:center\">VW,m3</th>";
 					echo "<th style=\"text-align:center\">FR,l/s</th>";
 				 
-				}?>
+				}
+				echo "<th style=\"text-align:center\">VW,m3</th>";
+				echo "<th style=\"text-align:center\">FR,l/s</th>";
+				?>
+				
             </tr>
         </thead>
 		<?php 
@@ -377,6 +383,8 @@ $irrigationPeriod=0;
 				echo "<script>updateCell('$var1', '$var2', '$r');</script>";
 
 				unset($agg);
+				//echo "<td align=\"center\">total</td>";
+				//echo "<td align=\"center\">total 1</td>";
 			} 
 			?>
 	</table>

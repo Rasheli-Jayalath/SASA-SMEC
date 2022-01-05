@@ -68,25 +68,9 @@
 
 
     </script>
-		
-      <?php
-
-        if(isset($_GET['msg']) AND isset($_GET['status']) ){  
-
-
-          echo "<div class=\"alert alert-warning alert-dismissible fade show\" role=\"aler\">";
-          echo "<span class=\"alert-icon\"><i class=\"ni ni-bell-55\"></i></span>";
-          echo "<span class=\"alert-text\"><strong>";
-          echo " </strong> ";
-          echo $_GET['msg']; 
-          echo "</span>";
-          echo "<button type=\"button\" class=\"btn-close\" data-bs-dismiss=\"alert\" aria-label=\"Close\">";
-          echo " <span aria-hidden=\"true\">&times;</span>";
-          echo "</button>";
-          echo "</div>";
-
-        }
-      ?>			
+    
+        <!-- alert -->
+        <?php include("../../includes/success_message.php");?>			
 
 <script>
 $(document).ready(function(){

@@ -1,6 +1,12 @@
 <?php session_start(); ?>
 <?php require_once('../Config/connection.php'); ?>
 
+<?php 	// checking if a user is logged in
+	if (isset($_SESSION['wu_uname'])) {
+		header('Location: ../index.php');
+	}
+ ?>
+
 <?php 
 
 	// check for form submission
@@ -109,32 +115,11 @@
               </div>
               <div class="card-body">
                 		
-      <?php
+        <!-- alert -->
+        <?php include("../includes/success_message.php");?>
 
-if(isset($_GET['msg']) AND isset($_GET['status']) ){  
-
-
-  echo "<div class=\"alert alert-warning alert-dismissible fade show\" role=\"aler\">";
-  echo "<span class=\"alert-icon\"><i class=\"ni ni-bell-55\"></i></span>";
-  echo "<span class=\"alert-text\"><strong>";
-  echo " </strong> ";
-  echo $_GET['msg']; 
-  echo "</span>";
-  echo "<button type=\"button\" class=\"btn-close\" data-bs-dismiss=\"alert\" aria-label=\"Close\">";
-  echo " <span aria-hidden=\"true\">&times;</span>";
-  echo "</button>";
-  echo "</div>";
-
-}
-
-?>		
                 <form  action="signin.php"  method="post"  enctype="multipart/form-data" autocomplete="off" role="form text-left">
-                  <label >Username<?php 	// checking if a user is logged in
-	if (isset($_SESSION['wu_id'])) {
-    echo '----';
-		echo $_SESSION['wu_uname'];
-	}
- ?></label>
+                  <label >Username</label>
                   <div class="mb-2">
                     <input type="text" class="form-control" placeholder="Username" aria-label="Username" name="username" aria-describedby="username-addon">
                   </div>

@@ -1,6 +1,5 @@
 <?php
 
-
 class Get_nc_id{
     function _check($uc_id){
         $connection = mysqli_connect('localhost', 'root', '', 'sas20210601');
