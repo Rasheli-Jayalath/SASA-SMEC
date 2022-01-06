@@ -29,14 +29,13 @@
 
               $cr_id =         $_POST['cr_id'];
               $sch_wat_value = $_POST['sch_wat_value'.$i] ;
-              $percent_value = $_POST['percent_value'.$i] ;
               $year = 2020;
 
               $sql_cwp = "SELECT * FROM wh_001_crop_per_main WHERE ts_id = $ts_id AND cr_id = $cr_id AND yr_name =  $year LIMIT 1 ";
               $result_cwp = mysqli_query($connection, $sql_cwp) or die( mysqli_error($connection));
               $num_of_raws_cwp = mysqli_num_rows($result_cwp);
               if($num_of_raws_cwp>0  ){
-                $query =  " UPDATE wh_001_crop_per_main SET sch_wat = '{$sch_wat_value}', percent = '{$percent_value}' ";
+                $query =  " UPDATE wh_001_crop_per_main SET sch_wat = '{$sch_wat_value}' ";
                 $query .= " WHERE ts_id = {$ts_id} AND cr_id = {$cr_id} AND yr_name =  {$year}";
                 $result_save = mysqli_query($connection, $query);
           
@@ -46,9 +45,9 @@
                 } 
               }else {
                 $query = "INSERT INTO wh_001_crop_per_main ( ";
-                $query .= "yr_name,     cr_id,      ts_id,       sch_wat,       percent";
+                $query .= "yr_name,     cr_id,      ts_id,       sch_wat      ";
                 $query .= ") VALUES (";
-                $query .= "'{$year}', '{$cr_id}', '{$ts_id}' , '{$sch_wat_value}' , '{$percent_value}'";
+                $query .= "'{$year}', '{$cr_id}', '{$ts_id}' , '{$sch_wat_value}' ";
                 $query .= ")";
   
                 $result_save = mysqli_query($connection, $query);

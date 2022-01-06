@@ -52,8 +52,8 @@ if(!empty($_POST["start_month_id"])){
         $decadal_num = $obj->_check( $row['ts_period'] ) ; 
 
         $obj2 = new get_Values_crop_per();
-        $sch_wat = $obj2->_get_sch_wat( $row['ts_id'] , $IDcrop_name) ; 
         $percent = $obj2->_get_percent( $row['ts_id'] , $IDcrop_name) ; 
+        $sch_wat =  ($cr_wat_req/100)*$percent ; 
 
         echo '<b>'.$a[$month_id] .'</b> ('.$row['ts_period'].')  &nbsp; <b>Decadal-'.$decadal_num.'</b>'; 
         echo '<div style = " display: flex;">'; 

@@ -108,7 +108,7 @@ $(document).ready(function(){
            <div class="col-md-11 m-auto py-4 border border-secondary rounded ">
               <div class="col-md-11 m-auto py-4  ">            
 
-                <form action="../Classes/save/tscale_irri_sch.php" method="post" class="text-white align-self-auto" enctype="multipart/form-data" autocomplete="off">
+                <form action="../Classes/save/tscale_irri_norms.php" method="post" class="text-white align-self-auto" enctype="multipart/form-data" autocomplete="off">
                         <h5 class="text-center pb-2">Manage Irrigation Norms <?php echo $default_year; ?>   </h5>
                         <button class="btn btn-sm text-xs text-dark bg-gradient btn-success p-2 float-end" style="" type="button"   >
                         <a href="form_ts_irri_norms.php"><i class="fas fa-redo"></i>  &nbsp;  Refresh </a></button>
